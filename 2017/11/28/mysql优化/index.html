@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mysql优化 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950核心原则• 尽量不在数据库做运算• 控制单表数据量• 保持表身段苗条• 平衡范式不冗余• 拒绝3B字段• 用好数值字段类型• 将字符转化为">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql优化">
+<meta property="og:url" content="http://empireghost.github.io/2017/11/28/mysql优化/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950核心原则• 尽量不在数据库做运算• 控制单表数据量• 保持表身段苗条• 平衡范式不冗余• 拒绝3B字段• 用好数值字段类型• 将字符转化为数字• 优先使用枚丼ENUM/SET• 避免使用NULL字段• 少用幵拆分TEX">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2017-11-28T10:53:19.244Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql优化">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950核心原则• 尽量不在数据库做运算• 控制单表数据量• 保持表身段苗条• 平衡范式不冗余• 拒绝3B字段• 用好数值字段类型• 将字符转化为数字• 优先使用枚丼ENUM/SET• 避免使用NULL字段• 少用幵拆分TEX">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://empireghost.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mysql优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/28/mysql优化/" class="article-date">
+  <time datetime="2017-11-28T10:52:34.000Z" itemprop="datePublished">2017-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql优化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">核心原则</span><br><span class="line"></span><br><span class="line">• 尽量不在数据库做运算</span><br><span class="line">• 控制单表数据量</span><br><span class="line">• 保持表身段苗条</span><br><span class="line">• 平衡范式不冗余</span><br><span class="line">• 拒绝3B</span><br><span class="line"></span><br><span class="line">字段</span><br><span class="line"></span><br><span class="line">• 用好数值字段类型</span><br><span class="line">• 将字符转化为数字</span><br><span class="line">• 优先使用枚丼ENUM/SET</span><br><span class="line">• 避免使用NULL字段</span><br><span class="line">• 少用幵拆分TEXT/BLOB</span><br><span class="line">• 不在数据库里存图片</span><br><span class="line"></span><br><span class="line">索引</span><br><span class="line"></span><br><span class="line">• 谨慎合理添加索引</span><br><span class="line">• 字符字段必须建前缀索引</span><br><span class="line">• 不在索引列做运算</span><br><span class="line">• 自增列或全局ID做INNODB主键</span><br><span class="line">• 尽量不用外键</span><br><span class="line"></span><br><span class="line">SQL</span><br><span class="line"></span><br><span class="line">• SQL语句尽可能简单</span><br><span class="line">• 保持事务(连接)短小</span><br><span class="line">• 尽可能避免使用SP/TRIG/FUNC</span><br><span class="line">• 尽量丌用 SELECT *</span><br><span class="line">• 改写OR语句</span><br><span class="line">• 避免负向查询和% 前缀模糊查询</span><br><span class="line">• 减少COUNT(*)</span><br><span class="line">• LIMIT的高效分页</span><br><span class="line">• 用UNION ALL 而非 UNION</span><br><span class="line">• 分解联接保证高幵发</span><br><span class="line">• GROUP BY 去除排序</span><br><span class="line">• 同数据类型的列值比较</span><br><span class="line">• Load data导数据</span><br><span class="line">• 打散大批量更新</span><br><span class="line">• Know Every SQL！</span><br><span class="line"></span><br><span class="line">约定</span><br><span class="line"></span><br><span class="line">• 隔离线上线下</span><br><span class="line">• 禁止未经DBA确认的子查询上线</span><br><span class="line">• 永远丌在程序端显式加锁</span><br><span class="line">• 统一字符集为UTF8</span><br><span class="line">• 统一命名规范</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/11/28/mysql优化/" data-id="cjaji86g800056ojgvtawkm28" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/28/eclipse插件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">eclipse插件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/28/mysql优化/">mysql优化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/28/eclipse插件/">eclipse插件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/28/IDEA插件/">IDEA插件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/28/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/28/中文测试/">中文测试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 empireghost<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
