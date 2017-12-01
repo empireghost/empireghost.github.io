@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ElasticSearch查询 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery(); matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;">
+<meta name="keywords" content="ElasticSearch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch查询">
+<meta property="og:url" content="http://empireghost.github.io/2017/12/01/ElasticSearch查询/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery(); matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;); multiMatchQuery     多字段单值匹配123QueryBuilder qb =">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2017-12-01T08:49:31.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ElasticSearch查询">
+<meta name="twitter:description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery(); matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;); multiMatchQuery     多字段单值匹配123QueryBuilder qb =">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://empireghost.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ElasticSearch查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/01/ElasticSearch查询/" class="article-date">
+  <time datetime="2017-12-01T08:34:05.000Z" itemprop="datePublished">2017-12-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ElasticSearch/">ElasticSearch</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ElasticSearch查询
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="matchAllQuery-全匹配"><a href="#matchAllQuery-全匹配" class="headerlink" title="matchAllQuery  全匹配"></a>matchAllQuery  全匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchAllQuery();</span><br></pre></td></tr></table></figure>
+<h5 id="matchQuery-单个匹配"><a href="#matchQuery-单个匹配" class="headerlink" title="matchQuery  单个匹配"></a>matchQuery  单个匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchQuery(&quot;name&quot;,&quot;kimchy elasticsearch&quot;);</span><br></pre></td></tr></table></figure>
+<h5 id="multiMatchQuery-多字段单值匹配"><a href="#multiMatchQuery-多字段单值匹配" class="headerlink" title="multiMatchQuery     多字段单值匹配"></a>multiMatchQuery     多字段单值匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = multiMatchQuery(&quot;kimchy elasticsearch&quot;, //key</span><br><span class="line">            &quot;user&quot;,&quot;message&quot;   //two field </span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+<h5 id="wildcardQuery-模糊匹配"><a href="#wildcardQuery-模糊匹配" class="headerlink" title="wildcardQuery  模糊匹配"></a>wildcardQuery  模糊匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WildcardQueryBuilder qb = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br></pre></td></tr></table></figure>
+<h5 id="boolType-AND"><a href="#boolType-AND" class="headerlink" title="boolType AND"></a>boolType AND</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.must(qb1);</span><br><span class="line">subQuery.must(qb2);</span><br></pre></td></tr></table></figure>
+<h5 id="boolType-OR"><a href="#boolType-OR" class="headerlink" title="boolType OR"></a>boolType OR</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.should(qb1);</span><br><span class="line">subQuery.should(qb2);</span><br></pre></td></tr></table></figure>
+<h5 id="分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"><a href="#分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量" class="headerlink" title="分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"></a>分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SearchResponse response = client.prepareSearch(&quot;dept&quot;)</span><br><span class="line">            .setTypes(&quot;employee&quot;)</span><br><span class="line">            .setQuery(queryBuilder)</span><br><span class="line">            .setFrom(0)</span><br><span class="line">            .setSize(2)</span><br><span class="line">            .execute()</span><br><span class="line">            .actionGet();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/12/01/ElasticSearch查询/" data-id="cjannysv50000vkjgrkfgipyh" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/29/分库分表/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">分库分表</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo/">dubbo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo/dubbox/">dubbox</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/eclipse/">eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/oracle/">oracle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/分库分表/">分库分表</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/01/ElasticSearch查询/">ElasticSearch查询</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/29/分库分表/">分库分表</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/28/平时小问题/">平时小问题</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/28/mysql优化/">mysql优化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/28/eclipse插件/">eclipse插件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 empireghost<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

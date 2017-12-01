@@ -49,9 +49,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://empireghost.github.io"></form>
@@ -61,6 +61,97 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-ElasticSearch查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/01/ElasticSearch查询/" class="article-date">
+  <time datetime="2017-12-01T08:34:05.000Z" itemprop="datePublished">2017-12-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ElasticSearch/">ElasticSearch</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/01/ElasticSearch查询/">ElasticSearch查询</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="matchAllQuery-全匹配"><a href="#matchAllQuery-全匹配" class="headerlink" title="matchAllQuery  全匹配"></a>matchAllQuery  全匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchAllQuery();</span><br></pre></td></tr></table></figure>
+<h5 id="matchQuery-单个匹配"><a href="#matchQuery-单个匹配" class="headerlink" title="matchQuery  单个匹配"></a>matchQuery  单个匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchQuery(&quot;name&quot;,&quot;kimchy elasticsearch&quot;);</span><br></pre></td></tr></table></figure>
+<h5 id="multiMatchQuery-多字段单值匹配"><a href="#multiMatchQuery-多字段单值匹配" class="headerlink" title="multiMatchQuery     多字段单值匹配"></a>multiMatchQuery     多字段单值匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = multiMatchQuery(&quot;kimchy elasticsearch&quot;, //key</span><br><span class="line">            &quot;user&quot;,&quot;message&quot;   //two field </span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+<h5 id="wildcardQuery-模糊匹配"><a href="#wildcardQuery-模糊匹配" class="headerlink" title="wildcardQuery  模糊匹配"></a>wildcardQuery  模糊匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WildcardQueryBuilder qb = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br></pre></td></tr></table></figure>
+<h5 id="boolType-AND"><a href="#boolType-AND" class="headerlink" title="boolType AND"></a>boolType AND</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.must(qb1);</span><br><span class="line">subQuery.must(qb2);</span><br></pre></td></tr></table></figure>
+<h5 id="boolType-OR"><a href="#boolType-OR" class="headerlink" title="boolType OR"></a>boolType OR</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.should(qb1);</span><br><span class="line">subQuery.should(qb2);</span><br></pre></td></tr></table></figure>
+<h5 id="分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"><a href="#分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量" class="headerlink" title="分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"></a>分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SearchResponse response = client.prepareSearch(&quot;dept&quot;)</span><br><span class="line">            .setTypes(&quot;employee&quot;)</span><br><span class="line">            .setQuery(queryBuilder)</span><br><span class="line">            .setFrom(0)</span><br><span class="line">            .setSize(2)</span><br><span class="line">            .execute()</span><br><span class="line">            .actionGet();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/12/01/ElasticSearch查询/" data-id="cjannysv50000vkjgrkfgipyh" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-分库分表" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/29/分库分表/" class="article-date">
+  <time datetime="2017-11-29T10:23:32.000Z" itemprop="datePublished">2017-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/分库分表/">分库分表</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/29/分库分表/">分库分表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="分库分表工具"><a href="#分库分表工具" class="headerlink" title="######分库分表工具"></a>######分库分表工具</h2><h2 id="mycat"><a href="#mycat" class="headerlink" title="mycat"></a><a href="http://www.mycat.io/" target="_blank" rel="noopener">mycat</a></h2><h2 id="sharding-jdbc"><a href="#sharding-jdbc" class="headerlink" title="sharding-jdbc "></a><a href="http://shardingjdbc.io" target="_blank" rel="noopener">sharding-jdbc</a> </h2><p><img src="sharding-jdbc.png" alt="sharding-jdbc"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/11/29/分库分表/" data-id="cjannysxq000gvkjgbdyev3uu" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mycat/">mycat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-平时小问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -97,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/平时小问题/" data-id="cjaknt88w000c94jgn9b6e8cs" class="article-share-link">Partager</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/平时小问题/" data-id="cjannysy2000nvkjgoxi74tkj" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li></ul>
@@ -139,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/mysql优化/" data-id="cjaknt88a000494jgja5ifre1" class="article-share-link">Partager</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/mysql优化/" data-id="cjannyszj000uvkjg14y20si2" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
@@ -182,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/eclipse插件/" data-id="cjaknt87x000094jg6p50thra" class="article-share-link">Partager</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/eclipse插件/" data-id="cjannyswx0001vkjg72nkfeww" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse/">eclipse</a></li></ul>
@@ -224,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/IDEA插件/" data-id="cjaknt88u000b94jgwy9klshf" class="article-share-link">Partager</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/IDEA插件/" data-id="cjannysx40004vkjgkztglqhb" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/">IDEA</a></li></ul>
@@ -271,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/hello-world/" data-id="cjaknt883000194jgsg5qtcok" class="article-share-link">Partager</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/hello-world/" data-id="cjannysxo000fvkjgyobq0d3n" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -314,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/中文测试/" data-id="cjaknt88z000f94jg37auz9rs" class="article-share-link">Partager</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/中文测试/" data-id="cjannyszt000zvkjgfed5lmv8" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
@@ -333,9 +424,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo/">dubbo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo/dubbox/">dubbox</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/eclipse/">eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/oracle/">oracle</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo/">dubbo</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo/dubbox/">dubbox</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/eclipse/">eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/oracle/">oracle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/分库分表/">分库分表</a></li></ul>
     </div>
   </div>
 
@@ -343,9 +434,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li></ul>
     </div>
   </div>
 
@@ -353,18 +444,18 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a>
+      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
   </div>
 
@@ -372,9 +463,17 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/01/ElasticSearch查询/">ElasticSearch查询</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/29/分库分表/">分库分表</a>
+          </li>
         
           <li>
             <a href="/2017/11/28/平时小问题/">平时小问题</a>
@@ -386,14 +485,6 @@
         
           <li>
             <a href="/2017/11/28/eclipse插件/">eclipse插件</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/28/IDEA插件/">IDEA插件</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/28/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -409,7 +500,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 empireghost<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

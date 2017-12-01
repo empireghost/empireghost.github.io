@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://empireghost.github.io/"/>
-  <updated>2017-11-29T06:16:25.479Z</updated>
+  <updated>2017-12-01T08:49:31.158Z</updated>
   <id>http://empireghost.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ElasticSearch查询</title>
+    <link href="http://empireghost.github.io/2017/12/01/ElasticSearch%E6%9F%A5%E8%AF%A2/"/>
+    <id>http://empireghost.github.io/2017/12/01/ElasticSearch查询/</id>
+    <published>2017-12-01T08:34:05.000Z</published>
+    <updated>2017-12-01T08:49:31.158Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="matchAllQuery-全匹配"><a href="#matchAllQuery-全匹配" class="headerlink" title="matchAllQuery  全匹配"></a>matchAllQuery  全匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchAllQuery();</span><br></pre></td></tr></table></figure><h5 id="matchQuery-单个匹配"><a href="#matchQuery-单个匹配" class="headerlink" title="matchQuery  单个匹配"></a>matchQuery  单个匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchQuery(&quot;name&quot;,&quot;kimchy elasticsearch&quot;);</span><br></pre></td></tr></table></figure><h5 id="multiMatchQuery-多字段单值匹配"><a href="#multiMatchQuery-多字段单值匹配" class="headerlink" title="multiMatchQuery     多字段单值匹配"></a>multiMatchQuery     多字段单值匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = multiMatchQuery(&quot;kimchy elasticsearch&quot;, //key</span><br><span class="line">            &quot;user&quot;,&quot;message&quot;   //two field </span><br><span class="line">        );</span><br></pre></td></tr></table></figure><h5 id="wildcardQuery-模糊匹配"><a href="#wildcardQuery-模糊匹配" class="headerlink" title="wildcardQuery  模糊匹配"></a>wildcardQuery  模糊匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WildcardQueryBuilder qb = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br></pre></td></tr></table></figure><h5 id="boolType-AND"><a href="#boolType-AND" class="headerlink" title="boolType AND"></a>boolType AND</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.must(qb1);</span><br><span class="line">subQuery.must(qb2);</span><br></pre></td></tr></table></figure><h5 id="boolType-OR"><a href="#boolType-OR" class="headerlink" title="boolType OR"></a>boolType OR</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.should(qb1);</span><br><span class="line">subQuery.should(qb2);</span><br></pre></td></tr></table></figure><h5 id="分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"><a href="#分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量" class="headerlink" title="分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"></a>分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SearchResponse response = client.prepareSearch(&quot;dept&quot;)</span><br><span class="line">            .setTypes(&quot;employee&quot;)</span><br><span class="line">            .setQuery(queryBuilder)</span><br><span class="line">            .setFrom(0)</span><br><span class="line">            .setSize(2)</span><br><span class="line">            .execute()</span><br><span class="line">            .actionGet();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;matchAllQuery-全匹配&quot;&gt;&lt;a href=&quot;#matchAllQuery-全匹配&quot; class=&quot;headerlink&quot; title=&quot;matchAllQuery  全匹配&quot;&gt;&lt;/a&gt;matchAllQuery  全匹配&lt;/h5&gt;&lt;figure cla
+      
+    
+    </summary>
+    
+      <category term="ElasticSearch" scheme="http://empireghost.github.io/categories/ElasticSearch/"/>
+    
+    
+      <category term="ElasticSearch" scheme="http://empireghost.github.io/tags/ElasticSearch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分库分表</title>
+    <link href="http://empireghost.github.io/2017/11/29/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
+    <id>http://empireghost.github.io/2017/11/29/分库分表/</id>
+    <published>2017-11-29T10:23:32.000Z</published>
+    <updated>2017-11-29T10:55:50.744Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="分库分表工具"><a href="#分库分表工具" class="headerlink" title="######分库分表工具"></a>######分库分表工具</h2><h2 id="mycat"><a href="#mycat" class="headerlink" title="mycat"></a><a href="http://www.mycat.io/" target="_blank" rel="noopener">mycat</a></h2><h2 id="sharding-jdbc"><a href="#sharding-jdbc" class="headerlink" title="sharding-jdbc "></a><a href="http://shardingjdbc.io" target="_blank" rel="noopener">sharding-jdbc</a> </h2><p><img src="sharding-jdbc.png" alt="sharding-jdbc"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;分库分表工具&quot;&gt;&lt;a href=&quot;#分库分表工具&quot; class=&quot;headerlink&quot; title=&quot;######分库分表工具&quot;&gt;&lt;/a&gt;######分库分表工具&lt;/h2&gt;&lt;h2 id=&quot;mycat&quot;&gt;&lt;a href=&quot;#mycat&quot; class=&quot;header
+      
+    
+    </summary>
+    
+      <category term="分库分表" scheme="http://empireghost.github.io/categories/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/"/>
+    
+    
+      <category term="mycat" scheme="http://empireghost.github.io/tags/mycat/"/>
+    
+      <category term="sharding-jdbc" scheme="http://empireghost.github.io/tags/sharding-jdbc/"/>
+    
+  </entry>
   
   <entry>
     <title>平时小问题</title>
@@ -144,7 +196,7 @@
     <link href="http://empireghost.github.io/2017/11/28/%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95/"/>
     <id>http://empireghost.github.io/2017/11/28/中文测试/</id>
     <published>2017-11-28T09:29:01.000Z</published>
-    <updated>2017-11-28T09:59:07.835Z</updated>
+    <updated>2017-11-29T10:25:14.969Z</updated>
     
     <content type="html"><![CDATA[<p>#####oracle 查询树形结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    T.GROUP_ID</span><br><span class="line">FROM</span><br><span class="line">    T_BEE_GROUP_DEPT_MAP T </span><br><span class="line">START WITH T.GROUP_ID = 11023349 </span><br><span class="line">CONNECT BY T.GROUP_ID = PRIOR T.PARENT_GROUP_ID</span><br></pre></td></tr></table></figure></p><h6 id="oracle-排序"><a href="#oracle-排序" class="headerlink" title="oracle 排序"></a><em>oracle 排序</em></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    CONTRACT_ID AS contractID,</span><br><span class="line">    OPE_TIME AS opeTime</span><br><span class="line">FROM</span><br><span class="line">    (</span><br><span class="line">        SELECT</span><br><span class="line">            ROW_NUMBER () OVER (</span><br><span class="line">                PARTITION BY IRB.CONTRACT_ID</span><br><span class="line">                ORDER BY</span><br><span class="line">                    IRB.OPE_TIME DESC</span><br><span class="line">            ) AS rn,</span><br><span class="line">            IRB.*</span><br><span class="line">        FROM</span><br><span class="line">            ICP_REPAYMENT_BOOKING IRB</span><br><span class="line">        WHERE</span><br><span class="line">            IRB.STATE_CODE IS NOT NULL</span><br><span class="line">    )</span><br><span class="line">WHERE</span><br><span class="line">    RN = 1</span><br></pre></td></tr></table></figure><hr>]]></content>
     
