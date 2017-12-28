@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://empireghost.github.io/"/>
-  <updated>2017-12-01T08:49:31.158Z</updated>
+  <updated>2017-12-28T07:27:52.887Z</updated>
   <id>http://empireghost.github.io/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysqlexport</title>
+    <link href="http://empireghost.github.io/2017/12/28/mysqlexport/"/>
+    <id>http://empireghost.github.io/2017/12/28/mysqlexport/</id>
+    <published>2017-12-28T07:24:08.000Z</published>
+    <updated>2017-12-28T07:27:52.887Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="mysql-根据sql语句导出数据"><a href="#mysql-根据sql语句导出数据" class="headerlink" title="mysql 根据sql语句导出数据"></a>mysql 根据sql语句导出数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    a.*,</span><br><span class="line">    b.b,</span><br><span class="line">    b.c,</span><br><span class="line">    b.d</span><br><span class="line">FROM</span><br><span class="line">    a</span><br><span class="line">LEFT JOIN b ON a.f = b.a </span><br><span class="line">INTO OUTFILE &apos;d:\wwwww.txt&apos; </span><br><span class="line">CHARACTER SET gbk </span><br><span class="line">FIELDS TERMINATED BY &apos;    &apos; </span><br><span class="line">OPTIONALLY ENCLOSED BY &apos;&apos; </span><br><span class="line">LINES TERMINATED BY &apos;\n&apos;;</span><br></pre></td></tr></table></figure><h4 id="mysql-删除重复数据"><a href="#mysql-删除重复数据" class="headerlink" title="mysql 删除重复数据"></a>mysql 删除重复数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DELETE t</span><br><span class="line">FROM</span><br><span class="line">    b t</span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT</span><br><span class="line">        a,</span><br><span class="line">        min(id) AS min_id</span><br><span class="line">    FROM</span><br><span class="line">        b</span><br><span class="line">    GROUP BY</span><br><span class="line">        a</span><br><span class="line">) t1 ON t.id = t1.min_id</span><br><span class="line">WHERE</span><br><span class="line">    t1.min_id IS NULL;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;mysql-根据sql语句导出数据&quot;&gt;&lt;a href=&quot;#mysql-根据sql语句导出数据&quot; class=&quot;headerlink&quot; title=&quot;mysql 根据sql语句导出数据&quot;&gt;&lt;/a&gt;mysql 根据sql语句导出数据&lt;/h4&gt;&lt;figure class
+      
+    
+    </summary>
+    
+      <category term="mysql export" scheme="http://empireghost.github.io/categories/mysql-export/"/>
+    
+    
+      <category term="mysql 导出 export" scheme="http://empireghost.github.io/tags/mysql-%E5%AF%BC%E5%87%BA-export/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RPC</title>
+    <link href="http://empireghost.github.io/2017/12/22/RPC/"/>
+    <id>http://empireghost.github.io/2017/12/22/RPC/</id>
+    <published>2017-12-22T03:02:55.000Z</published>
+    <updated>2017-12-28T07:29:46.275Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="thrift"><a href="#thrift" class="headerlink" title="thrift"></a><a href="http://thrift.apache.org/" target="_blank" rel="noopener">thrift</a></h4><p>thrift 注册多个服务</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">TBinaryProtocol.Factory proFactory = new TBinaryProtocol.Factory();</span><br><span class="line"></span><br><span class="line">TProcessor myServiceProcessor = new MyService.Processor&lt;MyService.Iface&gt;(</span><br><span class="line">        new MyServiceImpl());</span><br><span class="line"></span><br><span class="line">TProcessor personServiceProcessor = new PersonService.Processor&lt;PersonService.Iface&gt;(</span><br><span class="line">        new PersonServiceImpl());</span><br><span class="line"></span><br><span class="line">TMultiplexedProcessor multiProcessor = new TMultiplexedProcessor();</span><br><span class="line">multiProcessor.registerProcessor(&quot;myService&quot;, myServiceProcessor);</span><br><span class="line">multiProcessor.registerProcessor(&quot;personService&quot;, personServiceProcessor);</span><br></pre></td></tr></table></figure><hr><h4 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a><a href="http://grpc.io/" target="_blank" rel="noopener">grpc</a></h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;thrift&quot;&gt;&lt;a href=&quot;#thrift&quot; class=&quot;headerlink&quot; title=&quot;thrift&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://thrift.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;t
+      
+    
+    </summary>
+    
+      <category term="RPC thrift grpc" scheme="http://empireghost.github.io/categories/RPC-thrift-grpc/"/>
+    
+    
+      <category term="RPC thrift grpc" scheme="http://empireghost.github.io/tags/RPC-thrift-grpc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Esper</title>
+    <link href="http://empireghost.github.io/2017/12/22/Esper/"/>
+    <id>http://empireghost.github.io/2017/12/22/Esper/</id>
+    <published>2017-12-22T02:56:55.000Z</published>
+    <updated>2017-12-22T03:11:17.173Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="Esper"><a href="#Esper" class="headerlink" title="Esper"></a><a href="http://www.espertech.com/esper/" target="_blank" rel="noopener">Esper</a></h5><pre><code>CEP即Complex Event Process，中文意思就是“复杂事件处理”。听起来好像很复杂，实际上就是基于事件流进行数据处理，把要分析的数据抽象成事件，然后将数据发送到CEP引擎，引擎就会根据事件的输入和最初注册的处理模型，得到事件处理结果。</code></pre><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;Esper&quot;&gt;&lt;a href=&quot;#Esper&quot; class=&quot;headerlink&quot; title=&quot;Esper&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.espertech.com/esper/&quot; target=&quot;_blank&quot; rel=&quot;noopener
+      
+    
+    </summary>
+    
+      <category term="Esper" scheme="http://empireghost.github.io/categories/Esper/"/>
+    
+    
+      <category term="复杂事件处理 Esper Complex Event Process" scheme="http://empireghost.github.io/tags/%E5%A4%8D%E6%9D%82%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86-Esper-Complex-Event-Process/"/>
+    
+  </entry>
   
   <entry>
     <title>ElasticSearch查询</title>
