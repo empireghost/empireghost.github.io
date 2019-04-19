@@ -62,6 +62,91 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-最近学习的软件" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/03/最近学习的软件/" class="article-date">
+  <time datetime="2018-01-03T08:15:07.000Z" itemprop="datePublished">2018-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/03/最近学习的软件/">最近在学习的开源软件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="OKHttp"><a href="#OKHttp" class="headerlink" title="OKHttp"></a><a href="http://square.github.io/okhttp/" target="_blank" rel="noopener">OKHttp</a></h4><h4 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a><a href="http://square.github.io/retrofit/" target="_blank" rel="noopener">Retrofit</a></h4><h4 id="Guice"><a href="#Guice" class="headerlink" title="Guice"></a><a href="https://github.com/google/guice" target="_blank" rel="noopener">Guice</a></h4><h4 id="Guava"><a href="#Guava" class="headerlink" title="Guava"></a><a href="https://github.com/google/guava" target="_blank" rel="noopener">Guava</a></h4><h4 id="Sharding-jdbc"><a href="#Sharding-jdbc" class="headerlink" title="Sharding-jdbc"></a><a href="http://shardingjdbc.io" target="_blank" rel="noopener">Sharding-jdbc</a></h4><h4 id="Elastic-job"><a href="#Elastic-job" class="headerlink" title="Elastic-job"></a><a href="http://elasticjob.io" target="_blank" rel="noopener">Elastic-job</a></h4><h4 id="mybatis-plus"><a href="#mybatis-plus" class="headerlink" title="mybatis-plus"></a><a href="https://github.com/baomidou/mybatis-plus" target="_blank" rel="noopener">mybatis-plus</a></h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2018/01/03/最近学习的软件/" data-id="cjunvw6om001ekwmka2an9bsa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysqlexport" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/28/mysqlexport/" class="article-date">
+  <time datetime="2017-12-28T07:24:08.000Z" itemprop="datePublished">2017-12-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mysql-export/">mysql export</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/28/mysqlexport/">mysqlexport</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="mysql-根据sql语句导出数据"><a href="#mysql-根据sql语句导出数据" class="headerlink" title="mysql 根据sql语句导出数据"></a>mysql 根据sql语句导出数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    a.*,</span><br><span class="line">    b.b,</span><br><span class="line">    b.c,</span><br><span class="line">    b.d</span><br><span class="line">FROM</span><br><span class="line">    a</span><br><span class="line">LEFT JOIN b ON a.f = b.a </span><br><span class="line">INTO OUTFILE &apos;d:\wwwww.txt&apos; </span><br><span class="line">CHARACTER SET gbk </span><br><span class="line">FIELDS TERMINATED BY &apos;    &apos; </span><br><span class="line">OPTIONALLY ENCLOSED BY &apos;&apos; </span><br><span class="line">LINES TERMINATED BY &apos;\n&apos;;</span><br></pre></td></tr></table></figure>
+<h4 id="mysql-删除重复数据"><a href="#mysql-删除重复数据" class="headerlink" title="mysql 删除重复数据"></a>mysql 删除重复数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DELETE t</span><br><span class="line">FROM</span><br><span class="line">    b t</span><br><span class="line">LEFT JOIN (</span><br><span class="line">    SELECT</span><br><span class="line">        a,</span><br><span class="line">        min(id) AS min_id</span><br><span class="line">    FROM</span><br><span class="line">        b</span><br><span class="line">    GROUP BY</span><br><span class="line">        a</span><br><span class="line">) t1 ON t.id = t1.min_id</span><br><span class="line">WHERE</span><br><span class="line">    t1.min_id IS NULL;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/12/28/mysqlexport/" data-id="cjunvw6od000zkwmku1un2ofr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-导出-export/">mysql 导出 export</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-RPC" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/22/RPC/" class="article-date">
@@ -95,7 +180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/12/22/RPC/" data-id="cjrg10ga9000i2cjg00c2z77d" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/12/22/RPC/" data-id="cjunvw6ny000ikwmkjg00acay" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li></ul>
@@ -141,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/12/22/Esper/" data-id="cjrg10g9i00002cjgtzzl0t67" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/12/22/Esper/" data-id="cjunvw6nc0001kwmkhvicl8sd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/复杂事件处理-EsperComplexEventProcess/">复杂事件处理 EsperComplexEventProcess</a></li></ul>
@@ -189,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/12/01/ElasticSearch查询/" data-id="cjrg10ga5000d2cjgo589sprj" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/12/01/ElasticSearch查询/" data-id="cjunvw6nf0002kwmk1hab2ktn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li></ul>
@@ -232,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/29/分库分表/" data-id="cjrg10gaq00132cjgv0wo4g3o" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/29/分库分表/" data-id="cjunvw6oi0019kwmkp6e8fxi1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mycat/">mycat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li></ul>
@@ -284,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/平时小问题/" data-id="cjrg10gav00182cjgyhly9fnt" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/平时小问题/" data-id="cjunvw6ol001dkwmkxschipl3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li></ul>
@@ -326,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/mysql优化/" data-id="cjrg10gal000v2cjg3juztmli" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/mysql优化/" data-id="cjunvw6oe0011kwmkm5blfa6j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
@@ -369,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/eclipse插件/" data-id="cjrg10gah000p2cjgovt3qml2" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/eclipse插件/" data-id="cjunvw6o6000pkwmk48jye3h1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse/">eclipse</a></li></ul>
@@ -411,7 +496,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/IDEA插件/" data-id="cjrg10ga000082cjgsjses2vs" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/IDEA插件/" data-id="cjunvw6nq000bkwmkl0xldeof" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/">IDEA</a></li></ul>
@@ -423,100 +508,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/28/hello-world/" class="article-date">
-  <time datetime="2017-11-28T10:30:40.559Z" itemprop="datePublished">2017-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/hello-world/" data-id="cjrg10gaf000n2cjghr8szxpn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-中文测试" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/28/中文测试/" class="article-date">
-  <time datetime="2017-11-28T09:29:01.000Z" itemprop="datePublished">2017-11-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/oracle/">oracle</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/中文测试/">中文测试</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#####oracle 查询树形结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    T.GROUP_ID</span><br><span class="line">FROM</span><br><span class="line">    T_BEE_GROUP_DEPT_MAP T </span><br><span class="line">START WITH T.GROUP_ID = 11023349 </span><br><span class="line">CONNECT BY T.GROUP_ID = PRIOR T.PARENT_GROUP_ID</span><br></pre></td></tr></table></figure></p>
-<h6 id="oracle-排序"><a href="#oracle-排序" class="headerlink" title="oracle 排序"></a><em>oracle 排序</em></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    CONTRACT_ID AS contractID,</span><br><span class="line">    OPE_TIME AS opeTime</span><br><span class="line">FROM</span><br><span class="line">    (</span><br><span class="line">        SELECT</span><br><span class="line">            ROW_NUMBER () OVER (</span><br><span class="line">                PARTITION BY IRB.CONTRACT_ID</span><br><span class="line">                ORDER BY</span><br><span class="line">                    IRB.OPE_TIME DESC</span><br><span class="line">            ) AS rn,</span><br><span class="line">            IRB.*</span><br><span class="line">        FROM</span><br><span class="line">            ICP_REPAYMENT_BOOKING IRB</span><br><span class="line">        WHERE</span><br><span class="line">            IRB.STATE_CODE IS NOT NULL</span><br><span class="line">    )</span><br><span class="line">WHERE</span><br><span class="line">    RN = 1</span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/中文测试/" data-id="cjrg10gap00112cjgnco5wj4g" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -555,7 +550,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
   </div>
 
@@ -568,6 +563,14 @@
       <ul>
         
           <li>
+            <a href="/2019/03/19/Curator/">Curator&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/19/oracle/">&#39;oracle&#39;</a>
+          </li>
+        
+          <li>
             <a href="/2018/11/29/FastJSON/">FastJSON</a>
           </li>
         
@@ -577,14 +580,6 @@
         
           <li>
             <a href="/2018/11/29/iText/">iText</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/Thymeleaf/">Thymeleaf</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/FreeMarker/">FreeMarker</a>
           </li>
         
       </ul>

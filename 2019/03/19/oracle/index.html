@@ -3,15 +3,19 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Tag: mycat | Hexo</title>
+  <title>&#39;oracle&#39; | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://empireghost.github.io/tags/mycat/index.html">
+  <meta name="description" content="oracle 判断某个字段是否是数值123SELECT distinct con.ACCOUNT_BANK_NAME  FROM USER_BANK CON WHERE TRIM(TRANSLATE(CON.ACCOUNT_BANK_NAME, &apos;0123456789&apos;, &apos; &apos;)) IS NULL; 1234SELECT DISTINCT CON.ACCOUNT_BANK_NAME  FROM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;oracle&#39;">
+<meta property="og:url" content="http://empireghost.github.io/2019/03/19/oracle/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="oracle 判断某个字段是否是数值123SELECT distinct con.ACCOUNT_BANK_NAME  FROM USER_BANK CON WHERE TRIM(TRANSLATE(CON.ACCOUNT_BANK_NAME, &apos;0123456789&apos;, &apos; &apos;)) IS NULL; 1234SELECT DISTINCT CON.ACCOUNT_BANK_NAME  FROM">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-03-19T06:25:22.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="&#39;oracle&#39;">
+<meta name="twitter:description" content="oracle 判断某个字段是否是数值123SELECT distinct con.ACCOUNT_BANK_NAME  FROM USER_BANK CON WHERE TRIM(TRANSLATE(CON.ACCOUNT_BANK_NAME, &apos;0123456789&apos;, &apos; &apos;)) IS NULL; 1234SELECT DISTINCT CON.ACCOUNT_BANK_NAME  FROM">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,39 +64,62 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/29/分库分表/" class="archive-article-date">
-  <time datetime="2017-11-29T10:23:32.000Z" itemprop="datePublished">Nov 29</time>
+        <section id="main"><article id="post-oracle" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/19/oracle/" class="article-date">
+  <time datetime="2019-03-19T06:11:37.000Z" itemprop="datePublished">2019-03-19</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/29/分库分表/">分库分表</a>
+    <h1 class="article-title" itemprop="name">
+      &#39;oracle&#39;
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="oracle-判断某个字段是否是数值"><a href="#oracle-判断某个字段是否是数值" class="headerlink" title="oracle 判断某个字段是否是数值"></a>oracle 判断某个字段是否是数值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT distinct con.ACCOUNT_BANK_NAME</span><br><span class="line">  FROM USER_BANK CON</span><br><span class="line"> <span class="function">WHERE <span class="title">TRIM</span><span class="params">(TRANSLATE(CON.ACCOUNT_BANK_NAME, <span class="string">'0123456789'</span>, <span class="string">' '</span>)</span>) IS NULL</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> CON.ACCOUNT_BANK_NAME</span><br><span class="line">  <span class="keyword">FROM</span> USER_BANK CON</span><br><span class="line"> <span class="keyword">WHERE</span> CON.CDEFAULT_FLAG = <span class="string">'0'</span></span><br><span class="line">   <span class="keyword">AND</span> <span class="keyword">TRIM</span>(<span class="keyword">TRANSLATE</span>(NVL(CON.ACCOUNT_BANK_NAME, <span class="string">'X'</span>), <span class="string">'0123456789'</span>, <span class="string">' '</span>)) <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2019/03/19/oracle/" data-id="cjunvw6og0015kwmkigvpj512" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/19/Curator/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Curator&#39;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/29/FastJSON/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">FastJSON</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         

@@ -3,20 +3,19 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>eclipse插件 | Hexo</title>
+  <title>Curator&#39; | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#####eclipse插件12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970http://propedit.sourceforge.jp/eclipse/updates/http://f">
-<meta name="keywords" content="eclipse">
+  <meta name="description" content="使用Apache Curator 添加maven依赖注意一定要      需要排除zookeeper的客户端依赖包     并引入你需要的zookeeper依赖包版本，比如引入3.4.131234567891011121314151617181920212223242526272829303132&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.apache.cur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="eclipse插件">
-<meta property="og:url" content="http://empireghost.github.io/2017/11/28/eclipse插件/index.html">
+<meta property="og:title" content="Curator&#39;">
+<meta property="og:url" content="http://empireghost.github.io/2019/03/19/Curator/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#####eclipse插件12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970http://propedit.sourceforge.jp/eclipse/updates/http://f">
+<meta property="og:description" content="使用Apache Curator 添加maven依赖注意一定要      需要排除zookeeper的客户端依赖包     并引入你需要的zookeeper依赖包版本，比如引入3.4.131234567891011121314151617181920212223242526272829303132&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.apache.cur">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-05-24T07:26:12.753Z">
+<meta property="og:updated_time" content="2019-03-19T06:37:49.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="eclipse插件">
-<meta name="twitter:description" content="#####eclipse插件12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970http://propedit.sourceforge.jp/eclipse/updates/http://f">
+<meta name="twitter:title" content="Curator&#39;">
+<meta name="twitter:description" content="使用Apache Curator 添加maven依赖注意一定要      需要排除zookeeper的客户端依赖包     并引入你需要的zookeeper依赖包版本，比如引入3.4.131234567891011121314151617181920212223242526272829303132&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.apache.cur">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -65,16 +64,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-eclipse插件" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="&#39;apache-Curator" class="article article-type-&#39;apache" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/11/28/eclipse插件/" class="article-date">
-  <time datetime="2017-11-28T10:43:24.000Z" itemprop="datePublished">2017-11-28</time>
+    <a href="/2019/03/19/Curator/" class="article-date">
+  <time datetime="2019-03-19T06:33:27.000Z" itemprop="datePublished">2019-03-19</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/eclipse/">eclipse</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -83,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      eclipse插件
+      Curator&#39;
     </h1>
   
 
@@ -91,35 +86,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#####eclipse插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">http://propedit.sourceforge.jp/eclipse/updates/</span><br><span class="line"></span><br><span class="line">http://findbugs.cs.umd.edu/eclipse</span><br><span class="line"></span><br><span class="line">http://dl.bintray.com/ajermakovics/InstaSearch/</span><br><span class="line"></span><br><span class="line">http://metrics.sourceforge.net/update</span><br><span class="line"></span><br><span class="line">http://subclipse.tigris.org/update_1.8.x</span><br><span class="line"></span><br><span class="line">http://download.eclipse.org/technology/m2e/releases</span><br><span class="line"></span><br><span class="line">http://download.eclipse.org/recommenders/updates/stable/</span><br><span class="line"></span><br><span class="line">http://dist.springsource.com/release/TOOLS/cloudfoundry</span><br><span class="line"></span><br><span class="line">http://disy.github.com/perclipse/</span><br><span class="line"></span><br><span class="line">http://dist.springsource.com/release/TOOLS/update/e4.2/</span><br><span class="line"></span><br><span class="line">http://dist.sonar-ide.codehaus.org/eclipse/</span><br><span class="line"></span><br><span class="line">http://eclipse-color-theme.github.com/update</span><br><span class="line"></span><br><span class="line">http://update.eclemma.org/</span><br><span class="line"></span><br><span class="line">http://findbugs.cs.umd.edu/eclipse</span><br><span class="line"></span><br><span class="line">http://infinitest.github.io/</span><br><span class="line"></span><br><span class="line">http://code.inf.unibz.it/instasearch/downloads/</span><br><span class="line"></span><br><span class="line">http://dl.bintray.com/ajermakovics/InstaSearch/</span><br><span class="line"></span><br><span class="line">http://download.patternbox.com/update-site/</span><br><span class="line"></span><br><span class="line">http://disy.github.com/perclipse/</span><br><span class="line"></span><br><span class="line">http://propedit.sourceforge.jp/eclipse/updates/</span><br><span class="line"></span><br><span class="line">http://download.eclipse.org/recommenders/updates/stable/</span><br><span class="line"></span><br><span class="line">http://subclipse.tigris.org/update_1.8.x</span><br><span class="line"></span><br><span class="line">mybatis - http://dl.bintray.com/harawata/eclipse</span><br><span class="line"></span><br><span class="line">buildship - http://download.eclipse.org/buildship/updates/e46/releases/2.x</span><br><span class="line"></span><br><span class="line">checker java - http://types.cs.washington.edu/checker-framework/eclipse</span><br><span class="line"></span><br><span class="line">Red Hat JBoss Developer Studio - https://devstudio.redhat.com/10.0/stable/updates/</span><br><span class="line"></span><br><span class="line">theme - http://eclipse-color-theme.github.io/update/</span><br><span class="line"></span><br><span class="line">Subclipse 1.12.x Update Site - http://subclipse.tigris.org/update_1.12.x</span><br><span class="line"></span><br><span class="line">http://eclipse-jetty.github.io/update/</span><br><span class="line"></span><br><span class="line">https://p3c.alibaba.com/plugin/eclipse/update</span><br><span class="line">http://download.eclipse.org/buildship/updates/e46/releases/2.x</span><br><span class="line">http://eclipse-jetty.github.io/update/</span><br><span class="line">http://findbugs.cs.umd.edu/eclipse</span><br><span class="line">http://dl.bintray.com/ajermakovics/InstaSearch/</span><br><span class="line">http://dl.bintray.com/harawata/eclipse</span><br><span class="line">http://propedit.sourceforge.jp/eclipse/updates/</span><br><span class="line">https://eclipse-uc.sonarlint.org</span><br><span class="line">https://spotbugs.github.io/eclipse/</span><br><span class="line">http://eclipse-color-theme.github.io/update/</span><br><span class="line">https://github.com/ajermakovics/eclipse-instasearch</span><br></pre></td></tr></table></figure></p>
+        <h5 id="使用Apache-Curator-添加maven依赖注意"><a href="#使用Apache-Curator-添加maven依赖注意" class="headerlink" title="使用Apache Curator 添加maven依赖注意"></a>使用Apache Curator 添加maven依赖注意</h5><h5 id="一定要-需要排除zookeeper的客户端依赖包-并引入你需要的zookeeper依赖包版本，比如引入3-4-13"><a href="#一定要-需要排除zookeeper的客户端依赖包-并引入你需要的zookeeper依赖包版本，比如引入3-4-13" class="headerlink" title="一定要      需要排除zookeeper的客户端依赖包     并引入你需要的zookeeper依赖包版本，比如引入3.4.13"></a>一定要      需要排除zookeeper的客户端依赖包     并引入你需要的zookeeper依赖包版本，比如引入3.4.13</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-framework<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-recipes<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zookeeper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.zookeeper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.zookeeper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zookeeper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/eclipse插件/" data-id="cjunvw6o6000pkwmk48jye3h1" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2019/03/19/Curator/" data-id="cjunvw6n40000kwmkwr77vvs9" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse/">eclipse</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/11/28/mysql优化/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          mysql优化
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/28/IDEA插件/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/03/19/oracle/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">IDEA插件</div>
+      <div class="article-nav-title">&#39;oracle&#39;</div>
     </a>
   
 </nav>

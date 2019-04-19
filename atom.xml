@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://empireghost.github.io/"/>
-  <updated>2018-11-29T08:40:30.708Z</updated>
+  <updated>2019-03-19T06:37:49.653Z</updated>
   <id>http://empireghost.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Curator&#39;</title>
+    <link href="http://empireghost.github.io/2019/03/19/Curator/"/>
+    <id>http://empireghost.github.io/2019/03/19/Curator/</id>
+    <published>2019-03-19T06:33:27.000Z</published>
+    <updated>2019-03-19T06:37:49.653Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="使用Apache-Curator-添加maven依赖注意"><a href="#使用Apache-Curator-添加maven依赖注意" class="headerlink" title="使用Apache Curator 添加maven依赖注意"></a>使用Apache Curator 添加maven依赖注意</h5><h5 id="一定要-需要排除zookeeper的客户端依赖包-并引入你需要的zookeeper依赖包版本，比如引入3-4-13"><a href="#一定要-需要排除zookeeper的客户端依赖包-并引入你需要的zookeeper依赖包版本，比如引入3-4-13" class="headerlink" title="一定要      需要排除zookeeper的客户端依赖包     并引入你需要的zookeeper依赖包版本，比如引入3.4.13"></a>一定要      需要排除zookeeper的客户端依赖包     并引入你需要的zookeeper依赖包版本，比如引入3.4.13</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-framework<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-recipes<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.curator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>curator-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zookeeper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.zookeeper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.zookeeper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zookeeper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-log4j12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;使用Apache-Curator-添加maven依赖注意&quot;&gt;&lt;a href=&quot;#使用Apache-Curator-添加maven依赖注意&quot; class=&quot;headerlink&quot; title=&quot;使用Apache Curator 添加maven依赖注意&quot;&gt;&lt;/a&gt;使用
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;oracle&#39;</title>
+    <link href="http://empireghost.github.io/2019/03/19/oracle/"/>
+    <id>http://empireghost.github.io/2019/03/19/oracle/</id>
+    <published>2019-03-19T06:11:37.000Z</published>
+    <updated>2019-03-19T06:25:22.675Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="oracle-判断某个字段是否是数值"><a href="#oracle-判断某个字段是否是数值" class="headerlink" title="oracle 判断某个字段是否是数值"></a>oracle 判断某个字段是否是数值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT distinct con.ACCOUNT_BANK_NAME</span><br><span class="line">  FROM USER_BANK CON</span><br><span class="line"> <span class="function">WHERE <span class="title">TRIM</span><span class="params">(TRANSLATE(CON.ACCOUNT_BANK_NAME, <span class="string">'0123456789'</span>, <span class="string">' '</span>)</span>) IS NULL</span>;</span><br></pre></td></tr></table></figure><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> CON.ACCOUNT_BANK_NAME</span><br><span class="line">  <span class="keyword">FROM</span> USER_BANK CON</span><br><span class="line"> <span class="keyword">WHERE</span> CON.CDEFAULT_FLAG = <span class="string">'0'</span></span><br><span class="line">   <span class="keyword">AND</span> <span class="keyword">TRIM</span>(<span class="keyword">TRANSLATE</span>(NVL(CON.ACCOUNT_BANK_NAME, <span class="string">'X'</span>), <span class="string">'0123456789'</span>, <span class="string">' '</span>)) <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;oracle-判断某个字段是否是数值&quot;&gt;&lt;a href=&quot;#oracle-判断某个字段是否是数值&quot; class=&quot;headerlink&quot; title=&quot;oracle 判断某个字段是否是数值&quot;&gt;&lt;/a&gt;oracle 判断某个字段是否是数值&lt;/h3&gt;&lt;figure c
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>FastJSON</title>
@@ -412,52 +454,6 @@
     
     
       <category term="IDEA" scheme="http://empireghost.github.io/tags/IDEA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://empireghost.github.io/2017/11/28/hello-world/"/>
-    <id>http://empireghost.github.io/2017/11/28/hello-world/</id>
-    <published>2017-11-28T10:30:40.559Z</published>
-    <updated>2017-11-28T06:53:43.080Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>中文测试</title>
-    <link href="http://empireghost.github.io/2017/11/28/%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95/"/>
-    <id>http://empireghost.github.io/2017/11/28/中文测试/</id>
-    <published>2017-11-28T09:29:01.000Z</published>
-    <updated>2017-11-29T10:25:14.969Z</updated>
-    
-    <content type="html"><![CDATA[<p>#####oracle 查询树形结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    T.GROUP_ID</span><br><span class="line">FROM</span><br><span class="line">    T_BEE_GROUP_DEPT_MAP T </span><br><span class="line">START WITH T.GROUP_ID = 11023349 </span><br><span class="line">CONNECT BY T.GROUP_ID = PRIOR T.PARENT_GROUP_ID</span><br></pre></td></tr></table></figure></p><h6 id="oracle-排序"><a href="#oracle-排序" class="headerlink" title="oracle 排序"></a><em>oracle 排序</em></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">    CONTRACT_ID AS contractID,</span><br><span class="line">    OPE_TIME AS opeTime</span><br><span class="line">FROM</span><br><span class="line">    (</span><br><span class="line">        SELECT</span><br><span class="line">            ROW_NUMBER () OVER (</span><br><span class="line">                PARTITION BY IRB.CONTRACT_ID</span><br><span class="line">                ORDER BY</span><br><span class="line">                    IRB.OPE_TIME DESC</span><br><span class="line">            ) AS rn,</span><br><span class="line">            IRB.*</span><br><span class="line">        FROM</span><br><span class="line">            ICP_REPAYMENT_BOOKING IRB</span><br><span class="line">        WHERE</span><br><span class="line">            IRB.STATE_CODE IS NOT NULL</span><br><span class="line">    )</span><br><span class="line">WHERE</span><br><span class="line">    RN = 1</span><br></pre></td></tr></table></figure><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;#####oracle 查询树形结构&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line
-      
-    
-    </summary>
-    
-      <category term="oracle" scheme="http://empireghost.github.io/categories/oracle/"/>
-    
-    
-      <category term="oracle" scheme="http://empireghost.github.io/tags/oracle/"/>
     
   </entry>
   
