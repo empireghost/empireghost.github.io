@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>file_size | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 1">
+<meta name="keywords" content="commons-io file size">
+<meta property="og:type" content="article">
+<meta property="og:title" content="file_size">
+<meta property="og:url" content="http://empireghost.github.io/2019/08/21/file-size/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 1">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-08-21T10:14:52.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="file_size">
+<meta name="twitter:description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 1">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://empireghost.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-file-size" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/file-size/" class="article-date">
+  <time datetime="2019-08-21T07:36:18.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      file_size
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用java获取文件大小"><a href="#使用java获取文件大小" class="headerlink" title="使用java获取文件大小"></a>使用java获取文件大小</h2><h3 id="maven-依赖"><a href="#maven-依赖" class="headerlink" title="maven 依赖"></a>maven 依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-使用标准java-API"><a href="#1-使用标准java-API" class="headerlink" title="1   使用标准java API"></a>1   使用标准java API</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private long getFileSize(File file) &#123;</span><br><span class="line">    long length = file.length();</span><br><span class="line">    return length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用Java-nio"><a href="#2-使用Java-nio" class="headerlink" title="2  使用Java  nio"></a>2  使用Java  nio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Path imageFilePath = Paths.get(&quot;src/test/resources/image.jpg&quot;);</span><br><span class="line">FileChannel imageFileChannel = FileChannel.open(imageFilePath);</span><br><span class="line">long imageFileSize = imageFileChannel.size();</span><br></pre></td></tr></table></figure>
+<h3 id="3-使用-Apache-Commons-IO"><a href="#3-使用-Apache-Commons-IO" class="headerlink" title="3   使用    Apache Commons IO"></a>3   使用    Apache Commons IO</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File imageFile = new File(&quot;src/test/resources/image.jpg&quot;);</span><br><span class="line">long size = FileUtils.sizeOf(imageFile);</span><br><span class="line">FileUtils.byteCountToDisplaySize(size)</span><br></pre></td></tr></table></figure>
+<p>​        <strong>对于安全限制的文件，  <em>FileUtils.sizeOf()</em> 方法返回零.</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2019/08/21/file-size/" data-id="cjzl44tao000fqkmkoaybwr8a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commons-io-file-size/">commons-io file size</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/21/file-extension/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          file_extension
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/21/file-lines-count/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">file_lines_count</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Esper/">Esper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mybatis-Generate/">Mybatis Generate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo-dubbox/">dubbo dubbox</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/eclipse/">eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql-export/">mysql export</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/oracle/">oracle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/分库分表/">分库分表</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis-Generate/">Mybatis Generate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commons-io-file-size/">commons-io file size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/empty-blank-guava-commons-lang3/">empty blank guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/guava-commons-lang3/">guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-file/">java file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-导出-export/">mysql 导出 export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复杂事件处理-EsperComplexEventProcess/">复杂事件处理 EsperComplexEventProcess</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/Mybatis-Generate/" style="font-size: 10px;">Mybatis Generate</a> <a href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/" style="font-size: 10px;">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a> <a href="/tags/RPC-thrift-grpc/" style="font-size: 10px;">RPC thrift grpc</a> <a href="/tags/commons-io-file-size/" style="font-size: 10px;">commons-io file size</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/empty-blank-guava-commons-lang3/" style="font-size: 10px;">empty blank guava commons-lang3</a> <a href="/tags/guava-commons-lang3/" style="font-size: 10px;">guava commons-lang3</a> <a href="/tags/java-file/" style="font-size: 10px;">java file</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-导出-export/" style="font-size: 10px;">mysql 导出 export</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a> <a href="/tags/复杂事件处理-EsperComplexEventProcess/" style="font-size: 10px;">复杂事件处理 EsperComplexEventProcess</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/21/file-extension/">file_extension</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-size/">file_size</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-lines-count/">file_lines_count</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/check-empty-blank/">check_empty_blank</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/10/javafilesize/">fastjson</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 empireghost<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

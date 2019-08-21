@@ -62,6 +62,186 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-分库分表" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/29/分库分表/" class="article-date">
+  <time datetime="2017-11-29T10:23:32.000Z" itemprop="datePublished">2017-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/分库分表/">分库分表</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/29/分库分表/">分库分表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="分库分表工具"><a href="#分库分表工具" class="headerlink" title="######分库分表工具"></a>######分库分表工具</h2><h2 id="mycat"><a href="#mycat" class="headerlink" title="mycat"></a><a href="http://www.mycat.io/" target="_blank" rel="noopener">mycat</a></h2><h2 id="sharding-jdbc"><a href="#sharding-jdbc" class="headerlink" title="sharding-jdbc "></a><a href="http://shardingjdbc.io" target="_blank" rel="noopener">sharding-jdbc</a> </h2><p><img src="sharding-jdbc.png" alt="sharding-jdbc"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/11/29/分库分表/" data-id="cjzl44tau000nqkmkgphn94m0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mycat/">mycat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-平时小问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/28/平时小问题/" class="article-date">
+  <time datetime="2017-11-28T10:58:44.000Z" itemprop="datePublished">2017-11-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/dubbo-dubbox/">dubbo dubbox</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/平时小问题/">平时小问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="oracle-树形结构查询"><a href="#oracle-树形结构查询" class="headerlink" title="oracle 树形结构查询"></a>oracle 树形结构查询</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT T.GROUP_ID,T.NAME,SUBSTR(SYS_CONNECT_BY_PATH(T.NAME, &apos;&gt;&apos;),2) TREE_PATH   </span><br><span class="line">            FROM</span><br><span class="line">                VIEW_GROUPINFOPROVIDE T START WITH GROUP_ID =11191793</span><br><span class="line">                    CONNECT BY PRIOR GROUP_ID = parent_group_id</span><br></pre></td></tr></table></figure>
+<h6 id="dubbo-获取错误ip地址"><a href="#dubbo-获取错误ip地址" class="headerlink" title="dubbo 获取错误ip地址"></a>dubbo 获取错误ip地址</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPTIONS=&quot;-Ddubbo.protocol.host=192.168.1.111</span><br></pre></td></tr></table></figure>
+<p>######eclipse  代码模板  插入slf4j<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&#123;:import(org.slf4j.Logger,org.slf4j.LoggerFactory)&#125;</span><br><span class="line"></span><br><span class="line">private static final Logger logger = LoggerFactory.getLogger($&#123;enclosing_type&#125;.class);</span><br></pre></td></tr></table></figure></p>
+<p>######idea  代码模板  插入slf4j<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final Logger logger = LoggerFactory.getLogger($CLASS_NAME$.class);</span><br></pre></td></tr></table></figure></p>
+<p>######maven mirror 阿里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">    &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure></p>
+<p>#######maven显示依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn versions:display-dependency-updates</span><br><span class="line">mvn dependency:tree -Dverbose</span><br></pre></td></tr></table></figure></p>
+<h6 id="grep-多个关键字并显示行号"><a href="#grep-多个关键字并显示行号" class="headerlink" title="grep 多个关键字并显示行号"></a>grep 多个关键字并显示行号</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep  -n key1 filename | grep key2</span><br></pre></td></tr></table></figure>
+<p>######joda time 获取一天起始时刻<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.err.println(DateTime.now().withTimeAtStartOfDay());</span><br><span class="line"></span><br><span class="line">System.err.println(LocalDateTime.now().withMillisOfDay(0));</span><br></pre></td></tr></table></figure></p>
+<h5 id="BeyondCompare-4-2-3-license-key"><a href="#BeyondCompare-4-2-3-license-key" class="headerlink" title="BeyondCompare 4.2.3 license key"></a>BeyondCompare 4.2.3 license key</h5><p>#####<a href="https://github.com/ivan-nginx/beyond-compare" target="_blank" rel="noopener">https://github.com/ivan-nginx/beyond-compare</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">    WINDOWS</span><br><span class="line"></span><br><span class="line">w4G-in5u3SH75RoB3VZIX8htiZgw4ELilwvPcHAIQWfwfXv5n0IHDp5hv</span><br><span class="line">1BM3+H1XygMtiE0-JBgacjE9tz33sIh542EmsGs1yg638UxVfmWqNLqu-</span><br><span class="line">Zw91XxNEiZF7DC7-iV1XbSfsgxI8Tvqr-ZMTxlGCJU+2YLveAc-YXs8ci</span><br><span class="line">RTtssts7leEbJ979H5v+G0sw-FwP9bjvE4GCJ8oj+jtlp7wFmpVdzovEh</span><br><span class="line">v5Vg3dMqhqTiQHKfmHjYbb0o5OUxq0jOWxg5NKim9dhCVF+avO6mDeRNc</span><br><span class="line">OYpl7BatIcd6tsiwdhHKRnyGshyVEjSgRCRY11IgyvdRPnbW8UOVULuTE</span><br><span class="line">--------------------- </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--- BEGIN LICENSE KEY ---</span><br><span class="line">H1bJTd2SauPv5Garuaq0Ig43uqq5NJOEw94wxdZTpU-pFB9GmyPk677gJ</span><br><span class="line">vC1Ro6sbAvKR4pVwtxdCfuoZDb6hJ5bVQKqlfihJfSYZt-xVrVU27+0Ja</span><br><span class="line">hFbqTmYskatMTgPyjvv99CF2Te8ec+Ys2SPxyZAF0YwOCNOWmsyqN5y9t</span><br><span class="line">q2Kw2pjoiDs5gIH-uw5U49JzOB6otS7kThBJE-H9A76u4uUvR8DKb+VcB</span><br><span class="line">rWu5qSJGEnbsXNfJdq5L2D8QgRdV-sXHp2A-7j1X2n4WIISvU1V9koIyS</span><br><span class="line">NisHFBTcWJS0sC5BTFwrtfLEE9lEwz2bxHQpWJiu12ZeKpi+7oUSqebX+</span><br><span class="line">--- END LICENSE KEY -----</span><br><span class="line">MAC</span><br><span class="line">--- BEGIN LICENSE KEY ---</span><br><span class="line">H1bJTd2SauPv5Garuaq0Ig43uqq5NJOEw94wxdZTpU-pFB9GmyPk677gJ</span><br><span class="line">vC1Ro6sbAvKR4pVwtxdCfuoZDb6hJ5bVQKqlfihJfSYZt-xVrVU27+0Ja</span><br><span class="line">hFbqTmYskatMTgPyjvv99CF2Te8ec+Ys2SPxyZAF0YwOCNOWmsyqN5y9t</span><br><span class="line">q2Kw2pjoiDs5gIH-uw5U49JzOB6otS7kThBJE-H9A76u4uUvR8DKb+VcB</span><br><span class="line">rWu5qSJGEnbsXNfJdq5L2D8QgRdV-sXHp2A-7j1X2n4WIISvU1V9koIyS</span><br><span class="line">NisHFBTcWJS0sC5BTFwrtfLEE9lEwz2bxHQpWJiu12ZeKpi+7oUSqebX+</span><br><span class="line">--- END LICENSE KEY -----</span><br></pre></td></tr></table></figure></p>
+<h4 id="IDEA-license-code"><a href="#IDEA-license-code" class="headerlink" title="IDEA license code"></a>IDEA license code</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EB101IWSWD-eyJsaWNlbnNlSWQiOiJFQjEwMUlXU1dEIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJSUzAiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJXUyIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IlJEIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUkMiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IkRCIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUk0iLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJETSIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IkFDIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiRFBOIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUFMiLCJwYWlkVXBUbyI6IjIwMTgtMTAtMTQifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxOC0xMC0xNCJ9LHsiY29kZSI6IlBDIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In0seyJjb2RlIjoiUlNVIiwicGFpZFVwVG8iOiIyMDE4LTEwLTE0In1dLCJoYXNoIjoiNjk0NDAzMi8wIiwiZ3JhY2VQZXJpb2REYXlzIjowLCJhdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlLCJpc0F1dG9Qcm9sb25nYXRlZCI6ZmFsc2V9-Gbb7jeR8JWOVxdUFaXfJzVU/O7c7xHQyaidCnhYLp7v32zdeXiHUU7vlrrm5y9ZX0lmQk3plCCsW+phrC9gGAPd6WDKhkal10qVNg0larCR2tQ3u8jfv1t2JAvWrMOJfFG9kKsJuw1P4TozZ/E7Qvj1cupf/rldhoOmaXMyABxNN1af1RV3bVhe4FFZe0p7xlIJF/ctZkFK62HYmh8V3AyhUNTzrvK2k+t/tlDJz2LnW7nYttBLHld8LabPlEEjpTHswhzlthzhVqALIgvF0uNbIJ5Uwpb7NqR4U/2ob0Z+FIcRpFUIAHEAw+RLGwkCge5DyZKfx+RoRJ/In4q/UpA==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/11/28/平时小问题/" data-id="cjzl44taw000oqkmkiguz8xww" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/28/mysql优化/" class="article-date">
+  <time datetime="2017-11-28T10:52:34.000Z" itemprop="datePublished">2017-11-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mysql/">mysql</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/mysql优化/">mysql优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">核心原则</span><br><span class="line"></span><br><span class="line">• 尽量不在数据库做运算</span><br><span class="line">• 控制单表数据量</span><br><span class="line">• 保持表身段苗条</span><br><span class="line">• 平衡范式不冗余</span><br><span class="line">• 拒绝3B</span><br><span class="line"></span><br><span class="line">字段</span><br><span class="line"></span><br><span class="line">• 用好数值字段类型</span><br><span class="line">• 将字符转化为数字</span><br><span class="line">• 优先使用枚丼ENUM/SET</span><br><span class="line">• 避免使用NULL字段</span><br><span class="line">• 少用幵拆分TEXT/BLOB</span><br><span class="line">• 不在数据库里存图片</span><br><span class="line"></span><br><span class="line">索引</span><br><span class="line"></span><br><span class="line">• 谨慎合理添加索引</span><br><span class="line">• 字符字段必须建前缀索引</span><br><span class="line">• 不在索引列做运算</span><br><span class="line">• 自增列或全局ID做INNODB主键</span><br><span class="line">• 尽量不用外键</span><br><span class="line"></span><br><span class="line">SQL</span><br><span class="line"></span><br><span class="line">• SQL语句尽可能简单</span><br><span class="line">• 保持事务(连接)短小</span><br><span class="line">• 尽可能避免使用SP/TRIG/FUNC</span><br><span class="line">• 尽量丌用 SELECT *</span><br><span class="line">• 改写OR语句</span><br><span class="line">• 避免负向查询和% 前缀模糊查询</span><br><span class="line">• 减少COUNT(*)</span><br><span class="line">• LIMIT的高效分页</span><br><span class="line">• 用UNION ALL 而非 UNION</span><br><span class="line">• 分解联接保证高幵发</span><br><span class="line">• GROUP BY 去除排序</span><br><span class="line">• 同数据类型的列值比较</span><br><span class="line">• Load data导数据</span><br><span class="line">• 打散大批量更新</span><br><span class="line">• Know Every SQL！</span><br><span class="line"></span><br><span class="line">约定</span><br><span class="line"></span><br><span class="line">• 隔离线上线下</span><br><span class="line">• 禁止未经DBA确认的子查询上线</span><br><span class="line">• 永远丌在程序端显式加锁</span><br><span class="line">• 统一字符集为UTF8</span><br><span class="line">• 统一命名规范</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/11/28/mysql优化/" data-id="cjzl44tat000lqkmky4f7v2oc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-eclipse插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/28/eclipse插件/" class="article-date">
+  <time datetime="2017-11-28T10:43:24.000Z" itemprop="datePublished">2017-11-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/eclipse/">eclipse</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/28/eclipse插件/">eclipse插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#####eclipse插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">http://propedit.sourceforge.jp/eclipse/updates/</span><br><span class="line"></span><br><span class="line">http://findbugs.cs.umd.edu/eclipse</span><br><span class="line"></span><br><span class="line">http://dl.bintray.com/ajermakovics/InstaSearch/</span><br><span class="line"></span><br><span class="line">http://metrics.sourceforge.net/update</span><br><span class="line"></span><br><span class="line">http://subclipse.tigris.org/update_1.8.x</span><br><span class="line"></span><br><span class="line">http://download.eclipse.org/technology/m2e/releases</span><br><span class="line"></span><br><span class="line">http://download.eclipse.org/recommenders/updates/stable/</span><br><span class="line"></span><br><span class="line">http://dist.springsource.com/release/TOOLS/cloudfoundry</span><br><span class="line"></span><br><span class="line">http://disy.github.com/perclipse/</span><br><span class="line"></span><br><span class="line">http://dist.springsource.com/release/TOOLS/update/e4.2/</span><br><span class="line"></span><br><span class="line">http://dist.sonar-ide.codehaus.org/eclipse/</span><br><span class="line"></span><br><span class="line">http://eclipse-color-theme.github.com/update</span><br><span class="line"></span><br><span class="line">http://update.eclemma.org/</span><br><span class="line"></span><br><span class="line">http://findbugs.cs.umd.edu/eclipse</span><br><span class="line"></span><br><span class="line">http://infinitest.github.io/</span><br><span class="line"></span><br><span class="line">http://code.inf.unibz.it/instasearch/downloads/</span><br><span class="line"></span><br><span class="line">http://dl.bintray.com/ajermakovics/InstaSearch/</span><br><span class="line"></span><br><span class="line">http://download.patternbox.com/update-site/</span><br><span class="line"></span><br><span class="line">http://disy.github.com/perclipse/</span><br><span class="line"></span><br><span class="line">http://propedit.sourceforge.jp/eclipse/updates/</span><br><span class="line"></span><br><span class="line">http://download.eclipse.org/recommenders/updates/stable/</span><br><span class="line"></span><br><span class="line">http://subclipse.tigris.org/update_1.8.x</span><br><span class="line"></span><br><span class="line">mybatis - http://dl.bintray.com/harawata/eclipse</span><br><span class="line"></span><br><span class="line">buildship - http://download.eclipse.org/buildship/updates/e46/releases/2.x</span><br><span class="line"></span><br><span class="line">checker java - http://types.cs.washington.edu/checker-framework/eclipse</span><br><span class="line"></span><br><span class="line">Red Hat JBoss Developer Studio - https://devstudio.redhat.com/10.0/stable/updates/</span><br><span class="line"></span><br><span class="line">theme - http://eclipse-color-theme.github.io/update/</span><br><span class="line"></span><br><span class="line">Subclipse 1.12.x Update Site - http://subclipse.tigris.org/update_1.12.x</span><br><span class="line"></span><br><span class="line">http://eclipse-jetty.github.io/update/</span><br><span class="line"></span><br><span class="line">https://p3c.alibaba.com/plugin/eclipse/update</span><br><span class="line">http://download.eclipse.org/buildship/updates/e46/releases/2.x</span><br><span class="line">http://eclipse-jetty.github.io/update/</span><br><span class="line">http://findbugs.cs.umd.edu/eclipse</span><br><span class="line">http://dl.bintray.com/ajermakovics/InstaSearch/</span><br><span class="line">http://dl.bintray.com/harawata/eclipse</span><br><span class="line">http://propedit.sourceforge.jp/eclipse/updates/</span><br><span class="line">https://eclipse-uc.sonarlint.org</span><br><span class="line">https://spotbugs.github.io/eclipse/</span><br><span class="line">http://eclipse-color-theme.github.io/update/</span><br><span class="line">https://github.com/ajermakovics/eclipse-instasearch</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2017/11/28/eclipse插件/" data-id="cjzl44tak000cqkmk3ovi3ndu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse/">eclipse</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-IDEA插件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/28/IDEA插件/" class="article-date">
@@ -92,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/IDEA插件/" data-id="cjz3hyhxm0004jkmkljxoy4te" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/IDEA插件/" data-id="cjzl44ta90007qkmkvley2b9l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/">IDEA</a></li></ul>
@@ -139,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/hello-world/" data-id="cjz3hyhxs0009jkmk6nf5s0h9" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/hello-world/" data-id="cjzl44taq000hqkmk8apyx6l2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/11/28/中文测试/" data-id="cjz3hyhy6000jjkmki3da2ihq" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/11/28/中文测试/" data-id="cjzl44tau000mqkmklwjppoay" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
@@ -217,7 +397,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis-Generate/">Mybatis Generate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-file/">java file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-导出-export/">mysql 导出 export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复杂事件处理-EsperComplexEventProcess/">复杂事件处理 EsperComplexEventProcess</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis-Generate/">Mybatis Generate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commons-io-file-size/">commons-io file size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/empty-blank-guava-commons-lang3/">empty blank guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/guava-commons-lang3/">guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-file/">java file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-导出-export/">mysql 导出 export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复杂事件处理-EsperComplexEventProcess/">复杂事件处理 EsperComplexEventProcess</a></li></ul>
     </div>
   </div>
 
@@ -227,7 +407,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/Mybatis-Generate/" style="font-size: 10px;">Mybatis Generate</a> <a href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/" style="font-size: 10px;">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a> <a href="/tags/RPC-thrift-grpc/" style="font-size: 10px;">RPC thrift grpc</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/java-file/" style="font-size: 10px;">java file</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-导出-export/" style="font-size: 10px;">mysql 导出 export</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a> <a href="/tags/复杂事件处理-EsperComplexEventProcess/" style="font-size: 10px;">复杂事件处理 EsperComplexEventProcess</a>
+      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/Mybatis-Generate/" style="font-size: 10px;">Mybatis Generate</a> <a href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/" style="font-size: 10px;">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a> <a href="/tags/RPC-thrift-grpc/" style="font-size: 10px;">RPC thrift grpc</a> <a href="/tags/commons-io-file-size/" style="font-size: 10px;">commons-io file size</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/empty-blank-guava-commons-lang3/" style="font-size: 10px;">empty blank guava commons-lang3</a> <a href="/tags/guava-commons-lang3/" style="font-size: 10px;">guava commons-lang3</a> <a href="/tags/java-file/" style="font-size: 10px;">java file</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-导出-export/" style="font-size: 10px;">mysql 导出 export</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a> <a href="/tags/复杂事件处理-EsperComplexEventProcess/" style="font-size: 10px;">复杂事件处理 EsperComplexEventProcess</a>
     </div>
   </div>
 
@@ -236,7 +416,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
   </div>
 
@@ -249,23 +429,23 @@
       <ul>
         
           <li>
+            <a href="/2019/08/21/file-extension/">file_extension</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-size/">file_size</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-lines-count/">file_lines_count</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/check-empty-blank/">check_empty_blank</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/10/javafilesize/">fastjson</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/19/Curator/">Curator&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/19/oracle/">&#39;oracle&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/FastJSON/">FastJSON</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/Gson/">Gson</a>
           </li>
         
       </ul>

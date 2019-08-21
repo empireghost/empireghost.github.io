@@ -62,6 +62,188 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-file-extension" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/file-extension/" class="article-date">
+  <time datetime="2019-08-21T07:36:34.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/21/file-extension/">file_extension</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="获取文件后缀"><a href="#获取文件后缀" class="headerlink" title="获取文件后缀"></a>获取文件后缀</h2><h3 id="maven依赖"><a href="#maven依赖" class="headerlink" title="maven依赖"></a>maven依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-使用guava"><a href="#1-使用guava" class="headerlink" title="1    使用guava"></a>1    使用guava</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String fileExtension = Files.getFileExtension(filePath);</span><br></pre></td></tr></table></figure>
+<p>​    特殊情况</p>
+<p>​                1   没有后缀 – 方法返回空字符</p>
+<p>​                2   只有后缀比如  “.gitignore”   – 方法返回.之后的字符</p>
+<h3 id="2-使用commons-io"><a href="#2-使用commons-io" class="headerlink" title="2  使用commons-io"></a>2  使用commons-io</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String extension = FilenameUtils.getExtension(filePath);</span><br></pre></td></tr></table></figure>
+<p>​    特殊情况</p>
+<p>​                1   没有后缀 – 方法返回空字符</p>
+<p>​                2   只有后缀比如  “.gitignore”   – 方法返回.之后的字符</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2019/08/21/file-extension/" data-id="cjzl44tam000dqkmkm44c1a78" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guava-commons-lang3/">guava commons-lang3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-file-size" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/file-size/" class="article-date">
+  <time datetime="2019-08-21T07:36:18.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/21/file-size/">file_size</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用java获取文件大小"><a href="#使用java获取文件大小" class="headerlink" title="使用java获取文件大小"></a>使用java获取文件大小</h2><h3 id="maven-依赖"><a href="#maven-依赖" class="headerlink" title="maven 依赖"></a>maven 依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-使用标准java-API"><a href="#1-使用标准java-API" class="headerlink" title="1   使用标准java API"></a>1   使用标准java API</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private long getFileSize(File file) &#123;</span><br><span class="line">    long length = file.length();</span><br><span class="line">    return length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用Java-nio"><a href="#2-使用Java-nio" class="headerlink" title="2  使用Java  nio"></a>2  使用Java  nio</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Path imageFilePath = Paths.get(&quot;src/test/resources/image.jpg&quot;);</span><br><span class="line">FileChannel imageFileChannel = FileChannel.open(imageFilePath);</span><br><span class="line">long imageFileSize = imageFileChannel.size();</span><br></pre></td></tr></table></figure>
+<h3 id="3-使用-Apache-Commons-IO"><a href="#3-使用-Apache-Commons-IO" class="headerlink" title="3   使用    Apache Commons IO"></a>3   使用    Apache Commons IO</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File imageFile = new File(&quot;src/test/resources/image.jpg&quot;);</span><br><span class="line">long size = FileUtils.sizeOf(imageFile);</span><br><span class="line">FileUtils.byteCountToDisplaySize(size)</span><br></pre></td></tr></table></figure>
+<p>​        <strong>对于安全限制的文件，  <em>FileUtils.sizeOf()</em> 方法返回零.</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2019/08/21/file-size/" data-id="cjzl44tao000fqkmkoaybwr8a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commons-io-file-size/">commons-io file size</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="hexo-file-lines-count" class="article article-type-hexo" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/file-lines-count/" class="article-date">
+  <time datetime="2019-08-21T07:35:56.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/21/file-lines-count/">file_lines_count</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="java获取文件行数"><a href="#java获取文件行数" class="headerlink" title="java获取文件行数"></a>java获取文件行数</h2><h3 id="maven依赖"><a href="#maven依赖" class="headerlink" title="maven依赖"></a>maven依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="1-使用-NIO-的Files类"><a href="#1-使用-NIO-的Files类" class="headerlink" title="1 使用 NIO 的Files类"></a>1 使用 NIO 的Files类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try (Stream&lt;String&gt; fileStream = Files.lines(Paths.get(INPUT_FILE_NAME))) &#123;</span><br><span class="line">        int noOfLines = (int) fileStream.count();</span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line">List&lt;String&gt; fileStream = Files.readAllLines(Paths.get(INPUT_FILE_NAME));</span><br><span class="line">int noOfLines = fileStream.size();</span><br></pre></td></tr></table></figure>
+<h3 id="2-NIO-FileChannel"><a href="#2-NIO-FileChannel" class="headerlink" title="2    NIO FileChannel"></a>2    NIO <em>FileChannel</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int noOfLines = 1;</span><br><span class="line">try (FileChannel channel = FileChannel.open(Paths.get(INPUT_FILE_NAME), StandardOpenOption.READ)) &#123;</span><br><span class="line">	ByteBuffer byteBuffer = channel.map(MapMode.READ_ONLY, 0, channel.size());</span><br><span class="line">	while (byteBuffer.hasRemaining()) &#123;</span><br><span class="line">		byte currentByte = byteBuffer.get();</span><br><span class="line">		if (currentByte == &apos;\n&apos;) &#123;</span><br><span class="line">			noOfLines++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-Google-Guava-Files"><a href="#3-Google-Guava-Files" class="headerlink" title="3    Google Guava Files"></a>3    Google Guava <em>Files</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; lineItems = Files.readLines(Paths.get(INPUT_FILE_NAME)</span><br><span class="line">             .toFile(), Charset.defaultCharset());</span><br><span class="line">int noOfLines = lineItems.size();</span><br></pre></td></tr></table></figure>
+<h3 id="4-Apache-Commons-IO-FileUtils"><a href="#4-Apache-Commons-IO-FileUtils" class="headerlink" title="4  Apache Commons IO FileUtils"></a>4  Apache Commons IO <em>FileUtils</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int noOfLines = 0;</span><br><span class="line">LineIterator lineIterator = FileUtils.lineIterator(new File(INPUT_FILE_NAME));</span><br><span class="line">while (lineIterator.hasNext()) &#123;</span><br><span class="line">    lineIterator.nextLine();</span><br><span class="line">    noOfLines++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-BufferedReader"><a href="#5-BufferedReader" class="headerlink" title="5  BufferedReader"></a>5  <em>BufferedReader</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int noOfLines = 0;</span><br><span class="line">try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_FILE_NAME))) &#123;</span><br><span class="line">    while (reader.readLine() != null) &#123;</span><br><span class="line">        noOfLines++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-LineNumberReader"><a href="#6-LineNumberReader" class="headerlink" title="6 LineNumberReader"></a>6 <em>LineNumberReader</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try (LineNumberReader reader = new LineNumberReader(new FileReader(INPUT_FILE_NAME))) &#123;</span><br><span class="line">        reader.skip(Integer.MAX_VALUE);</span><br><span class="line">        int noOfLines = reader.getLineNumber() + 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-Scanner"><a href="#7-Scanner" class="headerlink" title="7  Scanner"></a>7  <em>Scanner</em></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try (Scanner scanner = new Scanner(new FileReader(INPUT_FILE_NAME))) &#123;</span><br><span class="line">     int noOfLines = 0;</span><br><span class="line">     while (scanner.hasNextLine()) &#123;</span><br><span class="line">         scanner.nextLine();</span><br><span class="line">         noOfLines++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2019/08/21/file-lines-count/" data-id="cjzl44tan000eqkmkdpe23756" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-check-empty-blank" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/21/check-empty-blank/" class="article-date">
+  <time datetime="2019-08-21T07:32:47.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/21/check-empty-blank/">check_empty_blank</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="检查字符是否为空"><a href="#检查字符是否为空" class="headerlink" title="检查字符是否为空"></a>检查字符是否为空</h2><h3 id="maven依赖"><a href="#maven依赖" class="headerlink" title="maven依赖"></a>maven依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="一-empty-检查"><a href="#一-empty-检查" class="headerlink" title="一   empty 检查"></a><strong>一   empty 检查</strong></h3><p>1     jdk1.6 及以上      null-safe 检查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean isEmptyString(String string) &#123;</span><br><span class="line">    return string == null || string.isEmpty();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2   jdk1.5 及以下       null-safe 检查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean isEmptyString(String string) &#123;</span><br><span class="line">    return string == null || string.length() == 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二-blank-检查"><a href="#二-blank-检查" class="headerlink" title="二   blank 检查"></a>二   blank 检查</h3><p>1  使用 common-lang3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.isBlank(string)</span><br></pre></td></tr></table></figure>
+<p>2 使用 guava</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Strings.isNullOrEmpty(string)</span><br></pre></td></tr></table></figure>
+<h3 id="三-总结"><a href="#三-总结" class="headerlink" title="三  总结"></a>三  总结</h3><p>  很多方法都可以，最推荐  common-langs 方法</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2019/08/21/check-empty-blank/" data-id="cjzl44tax000qqkmkozkvnn0e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/empty-blank-guava-commons-lang3/">empty blank guava commons-lang3</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="&#39;apache-javafilesize" class="article article-type-&#39;apache" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/10/javafilesize/" class="article-date">
@@ -89,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2019/06/10/javafilesize/" data-id="cjz3hyhxr0008jkmkro1m4mp9" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2019/06/10/javafilesize/" data-id="cjzl44tar000iqkmky9mihba2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-file/">java file</a></li></ul>
@@ -128,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2019/03/19/Curator/" data-id="cjz3hyhxb0000jkmk8vpt2yf6" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2019/03/19/Curator/" data-id="cjzl44t9u0000qkmkeus2btxu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -166,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2019/03/19/oracle/" data-id="cjz3hyhy3000gjkmkdjazo696" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2019/03/19/oracle/" data-id="cjzl44tas000kqkmkw6h3m2gp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2018/11/29/FastJSON/" data-id="cjz3hyhxi0001jkmk8imxb297" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2018/11/29/FastJSON/" data-id="cjzl44ta40003qkmk4ycdw1r9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -277,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2018/11/29/Gson/" data-id="cjz3hyhxx000bjkmkerl55fuv" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2018/11/29/Gson/" data-id="cjzl44ta70005qkmk3dwlchwv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -313,153 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2018/11/29/iText/" data-id="cjz3hyhy6000kjkmkl6fmby7x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Thymeleaf" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/29/Thymeleaf/" class="article-date">
-  <time datetime="2018-11-29T08:30:47.000Z" itemprop="datePublished">2018-11-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/Thymeleaf/">Thymeleaf</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2018/11/29/Thymeleaf/" data-id="cjz3hyhxq0007jkmkyo84sgga" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-FreeMarker" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/29/FreeMarker/" class="article-date">
-  <time datetime="2018-11-29T08:30:14.000Z" itemprop="datePublished">2018-11-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/FreeMarker/">FreeMarker</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: 是 or 否?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>
-<p>```</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2018/11/29/FreeMarker/" data-id="cjz3hyhxk0002jkmke6jja5j8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Retrofit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/29/Retrofit/" class="article-date">
-  <time datetime="2018-11-29T08:29:50.000Z" itemprop="datePublished">2018-11-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/Retrofit/">Retrofit</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2018/11/29/Retrofit/" data-id="cjz3hyhxp0006jkmkqn40fdnp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-OKHttp" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/29/OKHttp/" class="article-date">
-  <time datetime="2018-11-29T08:29:39.000Z" itemprop="datePublished">2018-11-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/OKHttp/">OKHttp</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2018/11/29/OKHttp/" data-id="cjz3hyhxz000djkmk8j52hsec" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2018/11/29/iText/" data-id="cjzl44tap000gqkmkw7iobjlc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -492,7 +528,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis-Generate/">Mybatis Generate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-file/">java file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-导出-export/">mysql 导出 export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复杂事件处理-EsperComplexEventProcess/">复杂事件处理 EsperComplexEventProcess</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis-Generate/">Mybatis Generate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commons-io-file-size/">commons-io file size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/empty-blank-guava-commons-lang3/">empty blank guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/guava-commons-lang3/">guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-file/">java file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-导出-export/">mysql 导出 export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复杂事件处理-EsperComplexEventProcess/">复杂事件处理 EsperComplexEventProcess</a></li></ul>
     </div>
   </div>
 
@@ -502,7 +538,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/Mybatis-Generate/" style="font-size: 10px;">Mybatis Generate</a> <a href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/" style="font-size: 10px;">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a> <a href="/tags/RPC-thrift-grpc/" style="font-size: 10px;">RPC thrift grpc</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/java-file/" style="font-size: 10px;">java file</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-导出-export/" style="font-size: 10px;">mysql 导出 export</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a> <a href="/tags/复杂事件处理-EsperComplexEventProcess/" style="font-size: 10px;">复杂事件处理 EsperComplexEventProcess</a>
+      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/Mybatis-Generate/" style="font-size: 10px;">Mybatis Generate</a> <a href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/" style="font-size: 10px;">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a> <a href="/tags/RPC-thrift-grpc/" style="font-size: 10px;">RPC thrift grpc</a> <a href="/tags/commons-io-file-size/" style="font-size: 10px;">commons-io file size</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/empty-blank-guava-commons-lang3/" style="font-size: 10px;">empty blank guava commons-lang3</a> <a href="/tags/guava-commons-lang3/" style="font-size: 10px;">guava commons-lang3</a> <a href="/tags/java-file/" style="font-size: 10px;">java file</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-导出-export/" style="font-size: 10px;">mysql 导出 export</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a> <a href="/tags/复杂事件处理-EsperComplexEventProcess/" style="font-size: 10px;">复杂事件处理 EsperComplexEventProcess</a>
     </div>
   </div>
 
@@ -511,7 +547,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
   </div>
 
@@ -524,23 +560,23 @@
       <ul>
         
           <li>
+            <a href="/2019/08/21/file-extension/">file_extension</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-size/">file_size</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-lines-count/">file_lines_count</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/check-empty-blank/">check_empty_blank</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/10/javafilesize/">fastjson</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/19/Curator/">Curator&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/19/oracle/">&#39;oracle&#39;</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/FastJSON/">FastJSON</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/29/Gson/">Gson</a>
           </li>
         
       </ul>
