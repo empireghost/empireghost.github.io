@@ -5,18 +5,18 @@
   
   <title>ElasticSearch查询 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery(); matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;); multiMatchQuery     多字段单值匹配123QueryBuilder qb =">
+  <meta name="description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery();  matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;);  multiMatchQuery     多字段单值匹配123QueryBuilder qb">
 <meta name="keywords" content="ElasticSearch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ElasticSearch查询">
 <meta property="og:url" content="http://empireghost.github.io/2017/12/01/ElasticSearch查询/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery(); matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;); multiMatchQuery     多字段单值匹配123QueryBuilder qb =">
+<meta property="og:description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery();  matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;);  multiMatchQuery     多字段单值匹配123QueryBuilder qb">
 <meta property="og:locale" content="zh">
 <meta property="og:updated_time" content="2017-12-01T08:49:31.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ElasticSearch查询">
-<meta name="twitter:description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery(); matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;); multiMatchQuery     多字段单值匹配123QueryBuilder qb =">
+<meta name="twitter:description" content="matchAllQuery  全匹配1QueryBuilder qb = matchAllQuery();  matchQuery  单个匹配1QueryBuilder qb = matchQuery(&amp;quot;name&amp;quot;,&amp;quot;kimchy elasticsearch&amp;quot;);  multiMatchQuery     多字段单值匹配123QueryBuilder qb">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -92,16 +92,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h5 id="matchAllQuery-全匹配"><a href="#matchAllQuery-全匹配" class="headerlink" title="matchAllQuery  全匹配"></a>matchAllQuery  全匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchAllQuery();</span><br></pre></td></tr></table></figure>
+
 <h5 id="matchQuery-单个匹配"><a href="#matchQuery-单个匹配" class="headerlink" title="matchQuery  单个匹配"></a>matchQuery  单个匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = matchQuery(&quot;name&quot;,&quot;kimchy elasticsearch&quot;);</span><br></pre></td></tr></table></figure>
+
 <h5 id="multiMatchQuery-多字段单值匹配"><a href="#multiMatchQuery-多字段单值匹配" class="headerlink" title="multiMatchQuery     多字段单值匹配"></a>multiMatchQuery     多字段单值匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QueryBuilder qb = multiMatchQuery(&quot;kimchy elasticsearch&quot;, //key</span><br><span class="line">            &quot;user&quot;,&quot;message&quot;   //two field </span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+
 <h5 id="wildcardQuery-模糊匹配"><a href="#wildcardQuery-模糊匹配" class="headerlink" title="wildcardQuery  模糊匹配"></a>wildcardQuery  模糊匹配</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WildcardQueryBuilder qb = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br></pre></td></tr></table></figure>
+
 <h5 id="boolType-AND"><a href="#boolType-AND" class="headerlink" title="boolType AND"></a>boolType AND</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.must(qb1);</span><br><span class="line">subQuery.must(qb2);</span><br></pre></td></tr></table></figure>
+
 <h5 id="boolType-OR"><a href="#boolType-OR" class="headerlink" title="boolType OR"></a>boolType OR</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BoolQueryBuilder subQuery = QueryBuilders.boolQuery();</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb1 = QueryBuilders.wildcardQuery(&quot;empname&quot;,&quot;*emp*&quot;);</span><br><span class="line"></span><br><span class="line">WildcardQueryBuilder qb2 = QueryBuilders.wildcardQuery(&quot;gender&quot;,&quot;*male*&quot;);</span><br><span class="line"></span><br><span class="line">subQuery.should(qb1);</span><br><span class="line">subQuery.should(qb2);</span><br></pre></td></tr></table></figure>
+
 <h5 id="分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"><a href="#分页-通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量" class="headerlink" title="分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量"></a>分页  通过from和size参数进行分页。From定义查询结果开始位置，size定义返回的hits（一条hit对应一条记录）最大数量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SearchResponse response = client.prepareSearch(&quot;dept&quot;)</span><br><span class="line">            .setTypes(&quot;employee&quot;)</span><br><span class="line">            .setQuery(queryBuilder)</span><br><span class="line">            .setFrom(0)</span><br><span class="line">            .setSize(2)</span><br><span class="line">            .execute()</span><br><span class="line">            .actionGet();</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/12/01/ElasticSearch查询/" data-id="cjzl4dbxj0001ngmkd3yagejg" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/12/01/ElasticSearch查询/" data-id="ck107ginz0000a8mk4lp56j6u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li></ul>

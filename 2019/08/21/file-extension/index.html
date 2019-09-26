@@ -88,11 +88,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="获取文件后缀"><a href="#获取文件后缀" class="headerlink" title="获取文件后缀"></a>获取文件后缀</h2><h3 id="maven依赖"><a href="#maven依赖" class="headerlink" title="maven依赖"></a>maven依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="1-使用guava"><a href="#1-使用guava" class="headerlink" title="1    使用guava"></a>1    使用guava</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String fileExtension = Files.getFileExtension(filePath);</span><br></pre></td></tr></table></figure>
+
 <p>​    特殊情况</p>
 <p>​                1   没有后缀 – 方法返回空字符</p>
 <p>​                2   只有后缀比如  “.gitignore”   – 方法返回.之后的字符</p>
 <h3 id="2-使用commons-io"><a href="#2-使用commons-io" class="headerlink" title="2  使用commons-io"></a>2  使用commons-io</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String extension = FilenameUtils.getExtension(filePath);</span><br></pre></td></tr></table></figure>
+
 <p>​    特殊情况</p>
 <p>​                1   没有后缀 – 方法返回空字符</p>
 <p>​                2   只有后缀比如  “.gitignore”   – 方法返回.之后的字符</p>
@@ -100,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2019/08/21/file-extension/" data-id="cjzl4dby2000engmkwtnpxvvc" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2019/08/21/file-extension/" data-id="ck107gipc000va8mk6xbjbdlm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guava-commons-lang3/">guava commons-lang3</a></li></ul>

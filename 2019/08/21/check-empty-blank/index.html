@@ -88,20 +88,25 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="检查字符是否为空"><a href="#检查字符是否为空" class="headerlink" title="检查字符是否为空"></a>检查字符是否为空</h2><h3 id="maven依赖"><a href="#maven依赖" class="headerlink" title="maven依赖"></a>maven依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.google.guava&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;guava&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;28.0-jre&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="一-empty-检查"><a href="#一-empty-检查" class="headerlink" title="一   empty 检查"></a><strong>一   empty 检查</strong></h3><p>1     jdk1.6 及以上      null-safe 检查</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean isEmptyString(String string) &#123;</span><br><span class="line">    return string == null || string.isEmpty();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>2   jdk1.5 及以下       null-safe 检查</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boolean isEmptyString(String string) &#123;</span><br><span class="line">    return string == null || string.length() == 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="二-blank-检查"><a href="#二-blank-检查" class="headerlink" title="二   blank 检查"></a>二   blank 检查</h3><p>1  使用 common-lang3</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringUtils.isBlank(string)</span><br></pre></td></tr></table></figure>
+
 <p>2 使用 guava</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Strings.isNullOrEmpty(string)</span><br></pre></td></tr></table></figure>
+
 <h3 id="三-总结"><a href="#三-总结" class="headerlink" title="三  总结"></a>三  总结</h3><p>  很多方法都可以，最推荐  common-langs 方法</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2019/08/21/check-empty-blank/" data-id="cjzl4dbxx000cngmk6ogr70re" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2019/08/21/check-empty-blank/" data-id="ck107gip3000na8mkycfeqgd8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/empty-blank-guava-commons-lang3/">empty blank guava commons-lang3</a></li></ul>

@@ -5,18 +5,18 @@
   
   <title>file_size | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 1">
+  <meta name="description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;  1">
 <meta name="keywords" content="commons-io file size">
 <meta property="og:type" content="article">
 <meta property="og:title" content="file_size">
 <meta property="og:url" content="http://empireghost.github.io/2019/08/21/file-size/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 1">
+<meta property="og:description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;  1">
 <meta property="og:locale" content="zh">
 <meta property="og:updated_time" content="2019-08-21T10:31:44.060Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="file_size">
-<meta name="twitter:description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt; 1">
+<meta name="twitter:description" content="使用java获取文件大小maven 依赖12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;2.6&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;  1">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -88,15 +88,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="使用java获取文件大小"><a href="#使用java获取文件大小" class="headerlink" title="使用java获取文件大小"></a>使用java获取文件大小</h2><h3 id="maven-依赖"><a href="#maven-依赖" class="headerlink" title="maven 依赖"></a>maven 依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.6&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="1-使用标准java-API"><a href="#1-使用标准java-API" class="headerlink" title="1   使用标准java API"></a>1   使用标准java API</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">getFileSize</span><span class="params">(File file)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> length = file.length();</span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="2-使用Java-nio"><a href="#2-使用Java-nio" class="headerlink" title="2  使用Java  nio"></a>2  使用Java  nio</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Path imageFilePath = Paths.get(<span class="string">"src/test/resources/image.jpg"</span>);</span><br><span class="line">FileChannel imageFileChannel = FileChannel.open(imageFilePath);</span><br><span class="line"><span class="keyword">long</span> imageFileSize = imageFileChannel.size();</span><br></pre></td></tr></table></figure>
+
 <h3 id="3-使用-Apache-Commons-IO"><a href="#3-使用-Apache-Commons-IO" class="headerlink" title="3   使用    Apache Commons IO"></a>3   使用    Apache Commons IO</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">File imageFile = <span class="keyword">new</span> File(<span class="string">"src/test/resources/image.jpg"</span>);</span><br><span class="line"><span class="keyword">long</span> size = FileUtils.sizeOf(imageFile);</span><br><span class="line">FileUtils.byteCountToDisplaySize(size)</span><br></pre></td></tr></table></figure>
+
 <p>​        <strong>对于安全限制的文件，  <em>FileUtils.sizeOf()</em> 方法返回零.</strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2019/08/21/file-size/" data-id="cjzl4dby4000gngmkjkfsg003" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2019/08/21/file-size/" data-id="ck107gipi0013a8mkhswna55q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commons-io-file-size/">commons-io file size</a></li></ul>

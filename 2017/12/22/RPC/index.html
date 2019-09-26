@@ -93,12 +93,13 @@
       
         <h4 id="thrift"><a href="#thrift" class="headerlink" title="thrift"></a><a href="http://thrift.apache.org/" target="_blank" rel="noopener">thrift</a></h4><p>thrift 注册多个服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">TBinaryProtocol.Factory proFactory = new TBinaryProtocol.Factory();</span><br><span class="line"></span><br><span class="line">TProcessor myServiceProcessor = new MyService.Processor&lt;MyService.Iface&gt;(</span><br><span class="line">        new MyServiceImpl());</span><br><span class="line"></span><br><span class="line">TProcessor personServiceProcessor = new PersonService.Processor&lt;PersonService.Iface&gt;(</span><br><span class="line">        new PersonServiceImpl());</span><br><span class="line"></span><br><span class="line">TMultiplexedProcessor multiProcessor = new TMultiplexedProcessor();</span><br><span class="line">multiProcessor.registerProcessor(&quot;myService&quot;, myServiceProcessor);</span><br><span class="line">multiProcessor.registerProcessor(&quot;personService&quot;, personServiceProcessor);</span><br></pre></td></tr></table></figure>
+
 <hr>
 <h4 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a><a href="http://grpc.io/" target="_blank" rel="noopener">grpc</a></h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://empireghost.github.io/2017/12/22/RPC/" data-id="cjzl4dbxt0009ngmkwahb40oy" class="article-share-link">Share</a>
+      <a data-url="http://empireghost.github.io/2017/12/22/RPC/" data-id="ck107giou000ha8mkbobw50bv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li></ul>
