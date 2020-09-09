@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="实数系的连续性定理我们对数的认识大致经历了自然数——整数——有理数——实数这样一个过程。在今天的搞高等数学教材中所研究的函数都是在实数的范围内，极限理论也是建立在实数系的连续性基础之上。而实际上在很长的一段历史时期内，人们对实数的认识一直都比较模糊。一直到柯西，戴德金，康托尔等人的发展下实数理论才得以完善。下面我们来看看实数系的基本定理。（也叫完备性或连续性定理）这几个定理是等价的。 一.确界存在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://empireghost.github.io/2020/09/09/实数系的连续性定理/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实数系的连续性定理我们对数的认识大致经历了自然数——整数——有理数——实数这样一个过程。在今天的搞高等数学教材中所研究的函数都是在实数的范围内，极限理论也是建立在实数系的连续性基础之上。而实际上在很长的一段历史时期内，人们对实数的认识一直都比较模糊。一直到柯西，戴德金，康托尔等人的发展下实数理论才得以完善。下面我们来看看实数系的基本定理。（也叫完备性或连续性定理）这几个定理是等价的。 一.确界存在">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%5Cin+S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%5Cleq+M">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%5Cgeq+L">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=sup+S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=inf+S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+x%5Cin+R">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%3D%5Cleft%5B+x+%5Cright%5D%2B%5Cleft%28+x+%5Cright%29">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%28+x+%5Cright%29%3D0.a_%7B1%7Da_%7B2%7D...a_%7Bn%7D...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=0.a_%7B1%7Da_%7B2%7Da_%7B3%7D...a_%7Bm%7D000000...%3D0.a_%7B1%7Da_%7B2%7Da_%7B3%7D...%28a_%7Bm%7D-1%29999999...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=s%5Csubset+R">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S%3D%5Cleft%5C%7Ba_%7B0%7D%2B0.a_%7B1%7Da_%7B2%7D...a_%7Bn%7D...%7Ca_%7B0%3D%5Cleft%5B+x+%5Cright%5D%7D%2C0.a_%7B1%7Da_%7B2%7D...a_%7Bn%7D...%3D%5Cleft%5C%7B+x+%5Cright%5C%7D%2Cx%5Cin+S%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D%3D0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=S%5Csupset+S_%7B0%7D%5Csupset+S_%7B1%7D%5Csupset...%5Csupset+S_%7Bn%7D%5Csupset...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D%3D0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta%3D%5Calpha_%7B0%7D%2B0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+x%5Cin+S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+n%EF%BC%8Cx%5Cin+S_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+x+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%28+x+%5Cright%29">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+x+%5Cright%5D%2B%5Cleft%28+x+%5Cright%29%3D%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cexists+n%EF%BC%8Cx%5Cnotin+S_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%3C0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D%5Cleq+%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+x%5Cin+S">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%5Cleq%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cbeta-%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n_%7B0%7D%5Cin+N">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7B10%5E%7Bn_%7B0%7D%7D%7D%3C%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cvarepsilon%3D0.01">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7B10%5E%7Bn_%7B0%7D%7D%7D%3D0.00001">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%5Cin+S_%7Bn_%7B0%7D%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n_%7B0%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta-x%3C%5Cfrac%7B1%7D%7B10%5E%7Bn_%7B0%7D%7D%7D%3C%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta-%5Cvarepsilon%3Cx">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cbeta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7Bx_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x%3Dsup%5Cleft%5C%7B+x_%7Bn%7D%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%EF%BC%8C%5Cexists+N%2Cx-%5Cvarepsilon%3Cx_%7BN%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=n%5Cgeq+N">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x-%5Cvarepsilon%3Cx_%7BN%7D%5Cleq+x_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn%7D%5Cleq+x%3Cx%2B%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x-%5Cvarepsilon%3Cx_%7Bn%7D%3Cx%2B%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn%7D%7D%3Dx">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D%5Csupset%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%2B1%7D%2Cb_%7Bn%2B1%7D+%5Cright%5D+%5Cright%5C%7D%2Cn%3D1%2C2%2C...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7B%EF%BC%88b_%7Bn%7D-a_%7Bn%7D%EF%BC%89%7D%3D0">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cxi">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cxi%5Cin%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%EF%BC%8Cn%3D1%EF%BC%8C2%EF%BC%8C...">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_%7B1%7D%5Cleq+a_%7B2%7D%5Cleq...%5C+a_%7Bn%7D+%5Cleq+...%5Cleq+b_%7Bn%7D%5Cleq...%5Cleq+b_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+a_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+b_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_%7Bn%7D%5Cleq+%5Cxi%5Cleq+b_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cxi">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cxi%27">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_%7Bn%7D%5Cleq+%5Cxi%27%5Cleq+b_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cxi-%5Cxi%E2%80%99%5Cright%7C%5Cleq+b_%7Bn%7D-a_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cxi-%5Cxi%E2%80%99%5Cright%7C%5Cleq+0">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cxi%3D%5Cxi%27">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_%7B1%7D%5Cleq++x_%7Bn%7D%5Cleq+b_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+n%EF%BC%8Cx_%7Bn%7D%5Cin+%5Cleft%5B+a_%7B1%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B1%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B1%7D%EF%BC%8C%5Cfrac%7Ba_%7B1%7D%2Bb_%7B1%7D%7D%7B2%7D+%5Cright%5D%EF%BC%8C%5Cleft%5B+%5Cfrac%7Ba_%7B1%7D%2Bb_%7B1%7D%7D%7B2%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B2%7D%EF%BC%8Cb_%7B2%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B3%7D%EF%BC%8Cb_%7B3%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cxi%5Cin+%5Cleft%5B+a_%7Bn%7D%EF%BC%8Cb_%7Bn%7D%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cxi">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B1%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn_%7B1%7D%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B2%7D%EF%BC%8Cb_%7B2%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn_%7B2%7D%7D%EF%BC%8Cn_%7B2%7D%3En_%7B1%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B3%7D%EF%BC%8Cb_%7B3%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn_%7B3%7D%7D%2C...+">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7Bk%7D%EF%BC%8Cb_%7Bk%7D+%5Cright%5D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=x_%7Bn_%7Bk%7D%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn_%7Bk%7D%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=a_%7Bk%7D%5Cleq+x_%7Bn_%7Bk%7D%7D%5Cleq+b_%7Bk%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=k%5Crightarrow+%5Cinfty">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Clim_%7Bk+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn_%7Bk%7D%7D%7D%3D%5Cxi">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2Cm%3EN%2C">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-x_%7Bm%7D+%5Cright%7C%3C%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn%7D%7D%3Da">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2C%3EN%2C%EF%BC%9A%5Cleft%7C+x_%7Bn%7D-a+%5Cright%7C%3C+%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+m%2C%3EN%EF%BC%8C%5Cleft%7C+x_%7Bm%7D-a+%5Cright%7C%3C+%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2Cm%3EN%2C%5Cleft%7C+x_%7Bn%7D-x_%7Bm%7D+%5Cright%7C%3D%5Cleft%7C+x_%7Bn%7D-a-%EF%BC%88x_%7Bm%7D-a%EF%BC%89%5Cright%7C%5Cleq+%5Cleft%7C+x_%7Bn%7D-a+%5Cright%7C%2B%5Cleft%7C+x_%7Bm%7D+-a%5Cright%7C+%3C%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cvarepsilon%3D1%EF%BC%8C%5Cexists+N_%7B0%7D%EF%BC%8C%5Cforall+n%EF%BC%8CN_%7B0%7D%2B1%3EN_%7B0%7D%2C">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-x_%7BN_%7B0%7D%2B1%7D%5Cright%7C%3C1">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D+%5Cright%7C%3C%5Cleft%7C+x_%7BN_%7B0%7D%2B1%7D+%5Cright%7C%2B1">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=M%3Dmax%5Cleft%5C%7B+%5Cleft%7C+x_%7B1%7D+%5Cright%7C%EF%BC%8C%5Cleft%7C+x_%7B2%7D+%5Cright%7C%EF%BC%8C...%2C%5Cleft%7C+x_%7BN_%7B0%7D%7D+%5Cright%7C%2C%5Cleft%7C+x_%7BN_%7B0%7D%2B1%7D+%5Cright%7C%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+n%EF%BC%8C%5Cleft%7C+x_%7Bn%7D+%5Cright%7C%5Cleq+M">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn_%7Bk%7D%7D+%5Cright%5C%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Clim_%7Bk+%5Crightarrow+%5Cinfty%7D%7B%5Cleft%5C%7B+x_%7Bn_%7Bk%7D%7D+%5Cright%5C%7D%7D%3D%5Cxi">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2Cm%3EN%2C%5Cleft%7C+x_%7Bn%7D-x_%7Bm%7D+%5Cright%7C%3C%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-x_%7Bn_%7Bk%7D%7D+%5Cright%7C%3C%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=k%5Crightarrow%5Cinfty">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-%5Cxi%5Cright%7C%5Cleq%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D%3C%5Cvarepsilon">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn%7D%7D%3D%5Cxi">
+<meta property="og:updated_time" content="2020-09-09T03:18:13.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="实数系的连续性定理我们对数的认识大致经历了自然数——整数——有理数——实数这样一个过程。在今天的搞高等数学教材中所研究的函数都是在实数的范围内，极限理论也是建立在实数系的连续性基础之上。而实际上在很长的一段历史时期内，人们对实数的认识一直都比较模糊。一直到柯西，戴德金，康托尔等人的发展下实数理论才得以完善。下面我们来看看实数系的基本定理。（也叫完备性或连续性定理）这几个定理是等价的。 一.确界存在">
+<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=x%5Cin+S">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://empireghost.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-实数系的连续性定理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/09/实数系的连续性定理/" class="article-date">
+  <time datetime="2020-09-09T03:18:13.311Z" itemprop="datePublished">2020-09-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实数系的连续性定理"><a href="#实数系的连续性定理" class="headerlink" title="实数系的连续性定理"></a>实数系的连续性定理</h1><p>我们对数的认识大致经历了自然数——整数——有理数——实数这样一个过程。在今天的搞高等数学教材中所研究的函数都是在实数的范围内，极限理论也是建立在实数系的连续性基础之上。而实际上在很长的一段历史时期内，人们对实数的认识一直都比较模糊。一直到柯西，戴德金，康托尔等人的发展下实数理论才得以完善。下面我们来看看实数系的基本定理。（也叫完备性或连续性定理）这几个定理是等价的。</p>
+<h2 id="一-确界存在原理：非空有上（下）界的数集必有上（下）确界。"><a href="#一-确界存在原理：非空有上（下）界的数集必有上（下）确界。" class="headerlink" title="一.确界存在原理：非空有上（下）界的数集必有上（下）确界。"></a>一.确界存在原理：非空有上（下）界的数集必有上（下）确界。</h2><p>对于R中的一个数集S，若存在数M(L)，使得对一切 <img src="https://www.zhihu.com/equation?tex=x%5Cin+S" alt="[公式]"> ,都有 <img src="https://www.zhihu.com/equation?tex=x%5Cleq+M" alt="[公式]"> (或 <img src="https://www.zhihu.com/equation?tex=x%5Cgeq+L" alt="[公式]"> ），则称S为有上界（或下界）的数集，M(L)称为S的一个上界（下界）。同时具有上下界称数集有界。</p>
+<p>确界：最小上界或最大下界称为上下确界。记为 <img src="https://www.zhihu.com/equation?tex=sup+S" alt="[公式]"> 或 <img src="https://www.zhihu.com/equation?tex=inf+S" alt="[公式]"></p>
+<p>证明： <img src="https://www.zhihu.com/equation?tex=%5Cforall+x%5Cin+R" alt="[公式]"> ， <img src="https://www.zhihu.com/equation?tex=x%3D%5Cleft%5B+x+%5Cright%5D%2B%5Cleft%28+x+%5Cright%29" alt="[公式]"> (任意一个数都可以用整数部分加小数部分来表示）</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cleft%28+x+%5Cright%29%3D0.a_%7B1%7Da_%7B2%7D...a_%7Bn%7D..." alt="[公式]"> （小数部分用无限小数表示，没有小数位数的补0）</p>
+<p>PS： 我们知道1=0.999999…，所以</p>
+<p><img src="https://www.zhihu.com/equation?tex=0.a_%7B1%7Da_%7B2%7Da_%7B3%7D...a_%7Bm%7D000000...%3D0.a_%7B1%7Da_%7B2%7Da_%7B3%7D...%28a_%7Bm%7D-1%29999999..." alt="[公式]"></p>
+<p>也就是说同一个小数有两种表示方法，在这里我们采用前者，此时，小数的表示是唯一确定的。</p>
+<p>设 <img src="https://www.zhihu.com/equation?tex=s%5Csubset+R" alt="[公式]"> ，非空，有上界，则 <img src="https://www.zhihu.com/equation?tex=S%3D%5Cleft%5C%7Ba_%7B0%7D%2B0.a_%7B1%7Da_%7B2%7D...a_%7Bn%7D...%7Ca_%7B0%3D%5Cleft%5B+x+%5Cright%5D%7D%2C0.a_%7B1%7Da_%7B2%7D...a_%7Bn%7D...%3D%5Cleft%5C%7B+x+%5Cright%5C%7D%2Cx%5Cin+S%5Cright%5C%7D" alt="[公式]"></p>
+<p><strong>我们现在要证明 <img src="https://www.zhihu.com/equation?tex=S" alt="[公式]"> 有上界，大致的思路是这样：我们要找到它的上确界，怎么找呢？让他每一个数位上的数最大就行了。</strong></p>
+<p>我们把 <img src="https://www.zhihu.com/equation?tex=S" alt="[公式]"> 中的数全写成了小数，那就可以把所有的 <img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 的整数部分取来，然后从中取最大的（一定有最大的，如果没有那 <img src="https://www.zhihu.com/equation?tex=S" alt="[公式]"> 就没有上界了），记为 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D" alt="[公式]"> ，然后构建一个 <img src="https://www.zhihu.com/equation?tex=S" alt="[公式]"> 的子集 <img src="https://www.zhihu.com/equation?tex=S_%7B0%7D" alt="[公式]"> ，这个集合中所有数的整数部分是 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D" alt="[公式]"> 。那我们现在做了一件什么事呢，就是把 <img src="https://www.zhihu.com/equation?tex=S" alt="[公式]"> 中整数部分最大的全拿出来构建了 <img src="https://www.zhihu.com/equation?tex=S_%7B0%7D" alt="[公式]"> ,那现在 属于<img src="https://www.zhihu.com/equation?tex=S" alt="[公式]"> 但不属于 <img src="https://www.zhihu.com/equation?tex=S_%7B0%7D" alt="[公式]"> 的数，整数部分一定小于 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D" alt="[公式]"> .</p>
+<p>然后在 <img src="https://www.zhihu.com/equation?tex=S_%7B0%7D" alt="[公式]"> 中取第一位小数 <img src="https://www.zhihu.com/equation?tex=a_%7B1%7D" alt="[公式]"> 的最大者，记为 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B1%7D" alt="[公式]"> ，然后我们把 <img src="https://www.zhihu.com/equation?tex=S_%7B0%7D" alt="[公式]"> 中整数部分为 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B1%7D" alt="[公式]"> 的拿出来构建一个子集 <img src="https://www.zhihu.com/equation?tex=S_%7B1%7D" alt="[公式]"> ，这样我们就保证了整数部分最大，第一位小数最大，…..一直做下去，我们可以保证第n位小数最大，只要我们一直做，就能一直保持当前的那个小数位最大。</p>
+<p><strong>至此，我们得到了一个数 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D%3D0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D..." alt="[公式]"> ,还得到了一串集合</strong> <img src="https://www.zhihu.com/equation?tex=S%5Csupset+S_%7B0%7D%5Csupset+S_%7B1%7D%5Csupset...%5Csupset+S_%7Bn%7D%5Csupset..." alt="[公式]"></p>
+<p><strong>现在我们来证明 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D%3D0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D..." alt="[公式]"> 就是上确界。怎么证明呢？</strong></p>
+<p>只需要证两件事（1）它是上界；（2）它是最小上界。</p>
+<p>令 <img src="https://www.zhihu.com/equation?tex=%5Cbeta%3D%5Calpha_%7B0%7D%2B0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D..." alt="[公式]"></p>
+<p>（1） <img src="https://www.zhihu.com/equation?tex=%5Cforall+x%5Cin+S" alt="[公式]"> ,只有两种情况： <img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 是最大的，或者不是最大的</p>
+<p><img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 是最大，则有 <img src="https://www.zhihu.com/equation?tex=%5Cforall+n%EF%BC%8Cx%5Cin+S_%7Bn%7D" alt="[公式]"> ，则考虑 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+x+%5Cright%5D" alt="[公式]"> 和 <img src="https://www.zhihu.com/equation?tex=%5Cleft%28+x+%5Cright%29" alt="[公式]"> ，则这个时候的 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+x+%5Cright%5D%2B%5Cleft%28+x+%5Cright%29%3D%5Cbeta" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 不是最大，则有 <img src="https://www.zhihu.com/equation?tex=%5Cexists+n%EF%BC%8Cx%5Cnotin+S_%7Bn%7D" alt="[公式]"> ,则 <img src="https://www.zhihu.com/equation?tex=x%3C0.%5Calpha_%7B1%7D%5Calpha_%7B2%7D...%5Calpha_%7Bn%7D%5Cleq+%5Cbeta" alt="[公式]"></p>
+<p>所以 <img src="https://www.zhihu.com/equation?tex=%5Cforall+x%5Cin+S" alt="[公式]"> ， <img src="https://www.zhihu.com/equation?tex=x%5Cleq%5Cbeta" alt="[公式]"> ，所以 <img src="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]"> 是上界</p>
+<p>（<strong>2）要证明 <img src="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]"> 是最小上界，就是证明 <img src="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]">稍微减去一点，就不是上界了，即<img src="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cbeta-%5Cvarepsilon" alt="[公式]"> 不是上界</strong></p>
+<p>我们取 <img src="https://www.zhihu.com/equation?tex=n_%7B0%7D%5Cin+N" alt="[公式]"> 使得， <img src="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7B10%5E%7Bn_%7B0%7D%7D%7D%3C%5Cvarepsilon" alt="[公式]"> ，（比如取 <img src="https://www.zhihu.com/equation?tex=%5Cvarepsilon%3D0.01" alt="[公式]"> ， <img src="https://www.zhihu.com/equation?tex=%5Cfrac%7B1%7D%7B10%5E%7Bn_%7B0%7D%7D%7D%3D0.00001" alt="[公式]"> ）</p>
+<p>取 <img src="https://www.zhihu.com/equation?tex=x%5Cin+S_%7Bn_%7B0%7D%7D" alt="[公式]"> ，这样的话 <img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 整数部分为 <img src="https://www.zhihu.com/equation?tex=%5Calpha_%7B0%7D" alt="[公式]"> ，前 <img src="https://www.zhihu.com/equation?tex=n_%7B0%7D" alt="[公式]"> 位小数都与 <img src="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]"> 相同，</p>
+<p>则 <img src="https://www.zhihu.com/equation?tex=%5Cbeta-x%3C%5Cfrac%7B1%7D%7B10%5E%7Bn_%7B0%7D%7D%7D%3C%5Cvarepsilon" alt="[公式]"> ,即 <img src="https://www.zhihu.com/equation?tex=%5Cbeta-%5Cvarepsilon%3Cx" alt="[公式]"> ,这样一来， <img src="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]"> 就不是上界了，故最小上界得证。</p>
+<p>因此，我们从数集非空有上界推出了有上确界，同理可证有下界必有下确界。</p>
+<h2 id="二-单调有界收敛原理：数列单调-有界必定收敛。"><a href="#二-单调有界收敛原理：数列单调-有界必定收敛。" class="headerlink" title="二.单调有界收敛原理：数列单调+有界必定收敛。"></a>二.单调有界收敛原理：数列单调+有界必定收敛。</h2><p>说明：这里的有界不一定是同时有上下界，而是相对于单调来说的，我们从直观来看，如果数列单调递增，则有上界能保证收敛；如果单调递减，则需要有下界来保证收敛。、</p>
+<p>证明：设 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7Bx_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 单调递增，有上界。由确界存在原理可得， <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 有上确界，记为 <img src="https://www.zhihu.com/equation?tex=x%3Dsup%5Cleft%5C%7B+x_%7Bn%7D%5Cright%5C%7D" alt="[公式]"> ，下面证明这个 <img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 就是数列的极限。</p>
+<p>由于 <img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 是上确界，则 <img src="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%EF%BC%8C%5Cexists+N%2Cx-%5Cvarepsilon%3Cx_%7BN%7D" alt="[公式]"> ,当 <img src="https://www.zhihu.com/equation?tex=n%5Cgeq+N" alt="[公式]"> 时，有 <img src="https://www.zhihu.com/equation?tex=x-%5Cvarepsilon%3Cx_%7BN%7D%5Cleq+x_%7Bn%7D" alt="[公式]"> ；</p>
+<p>又因为 <img src="https://www.zhihu.com/equation?tex=x" alt="[公式]"> 是 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 的一个上界，所以对于一切 <img src="https://www.zhihu.com/equation?tex=x_%7Bn%7D" alt="[公式]"> ，都有 <img src="https://www.zhihu.com/equation?tex=x_%7Bn%7D%5Cleq+x%3Cx%2B%5Cvarepsilon" alt="[公式]"> .所以，当n充分大时， <img src="https://www.zhihu.com/equation?tex=x-%5Cvarepsilon%3Cx_%7Bn%7D%3Cx%2B%5Cvarepsilon" alt="[公式]"> ,由夹逼性可得， <img src="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn%7D%7D%3Dx" alt="[公式]"> 。</p>
+<p>同理可证单调递减有下界必定收敛。</p>
+<h2 id="三-闭区间套定理（Cantor准则）。"><a href="#三-闭区间套定理（Cantor准则）。" class="headerlink" title="三.闭区间套定理（Cantor准则）。"></a>三.闭区间套定理（Cantor准则）。</h2><p>我们先来看一下什么叫闭区间套。</p>
+<p>设闭区间列 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D" alt="[公式]"> 具有下面两条性质，则称其为闭区间套：</p>
+<p>（1） <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D%5Csupset%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%2B1%7D%2Cb_%7Bn%2B1%7D+%5Cright%5D+%5Cright%5C%7D%2Cn%3D1%2C2%2C..." alt="[公式]"></p>
+<p>（2） <img src="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7B%EF%BC%88b_%7Bn%7D-a_%7Bn%7D%EF%BC%89%7D%3D0" alt="[公式]"></p>
+<p>定理：若 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D" alt="[公式]"> 是一个闭区间套，则在实数系中存在唯一的一点 <img src="https://www.zhihu.com/equation?tex=%5Cxi" alt="[公式]"> ，使得 <img src="https://www.zhihu.com/equation?tex=%5Cxi%5Cin%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%EF%BC%8Cn%3D1%EF%BC%8C2%EF%BC%8C..." alt="[公式]"></p>
+<p>证明：从定义来看，闭区间套应该有下面的性质： <img src="https://www.zhihu.com/equation?tex=a_%7B1%7D%5Cleq+a_%7B2%7D%5Cleq...%5C+a_%7Bn%7D+%5Cleq+...%5Cleq+b_%7Bn%7D%5Cleq...%5Cleq+b_%7B1%7D" alt="[公式]"></p>
+<p>所以 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+a_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 单调递增且有上界， <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+b_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 单调递减且有下界，且两数列极限相同，所以 <img src="https://www.zhihu.com/equation?tex=a_%7Bn%7D%5Cleq+%5Cxi%5Cleq+b_%7Bn%7D" alt="[公式]"> ，所以存在 <img src="https://www.zhihu.com/equation?tex=%5Cxi" alt="[公式]"> 这一点满足条件。</p>
+<p>下面证明唯一性：假设另外一数 <img src="https://www.zhihu.com/equation?tex=%5Cxi%27" alt="[公式]"> 也满足 <img src="https://www.zhihu.com/equation?tex=a_%7Bn%7D%5Cleq+%5Cxi%27%5Cleq+b_%7Bn%7D" alt="[公式]"> ,那么 <img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cxi-%5Cxi%E2%80%99%5Cright%7C%5Cleq+b_%7Bn%7D-a_%7Bn%7D" alt="[公式]"></p>
+<p>取极限，得 <img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+%5Cxi-%5Cxi%E2%80%99%5Cright%7C%5Cleq+0" alt="[公式]"> ，于是 <img src="https://www.zhihu.com/equation?tex=%5Cxi%3D%5Cxi%27" alt="[公式]"> ,唯一性证毕。</p>
+<h2 id="四-Bolzano-Weierstrass定理（致密性定理）：有界数列必有收敛子列。"><a href="#四-Bolzano-Weierstrass定理（致密性定理）：有界数列必有收敛子列。" class="headerlink" title="四.Bolzano-Weierstrass定理（致密性定理）：有界数列必有收敛子列。"></a>四.Bolzano-Weierstrass定理（致密性定理）：有界数列必有收敛子列。</h2><p>说明：从之前第二个定理看出，有界+单调的条件方能推出数列收敛，而只有有界的情况下，则没有那么强的结论，只能得到稍微弱一些结论。</p>
+<p>证明：设 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 有界， <img src="https://www.zhihu.com/equation?tex=a_%7B1%7D%5Cleq++x_%7Bn%7D%5Cleq+b_%7B1%7D" alt="[公式]"> ，即 <img src="https://www.zhihu.com/equation?tex=%5Cforall+n%EF%BC%8Cx_%7Bn%7D%5Cin+%5Cleft%5B+a_%7B1%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D" alt="[公式]"></p>
+<p>现在将 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B1%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D" alt="[公式]"> 分为 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B1%7D%EF%BC%8C%5Cfrac%7Ba_%7B1%7D%2Bb_%7B1%7D%7D%7B2%7D+%5Cright%5D%EF%BC%8C%5Cleft%5B+%5Cfrac%7Ba_%7B1%7D%2Bb_%7B1%7D%7D%7B2%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D" alt="[公式]"> ，必然有一个区间包含了 <img src="https://www.zhihu.com/equation?tex=x_%7Bn%7D" alt="[公式]"> 的无穷多项，取其为 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B2%7D%EF%BC%8Cb_%7B2%7D+%5Cright%5D" alt="[公式]"> ，再将这个区间分成两个小区间，其中必然有一个包含 <img src="https://www.zhihu.com/equation?tex=x_%7Bn%7D" alt="[公式]"> 无穷多项，再将它记为 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B3%7D%EF%BC%8Cb_%7B3%7D+%5Cright%5D" alt="[公式]"> …</p>
+<p>… … ,一直做下去，我们得到一个闭区间套 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+%5Cleft%5B+a_%7Bn%7D%2Cb_%7Bn%7D+%5Cright%5D+%5Cright%5C%7D" alt="[公式]"> ，由闭区间套定理，可得，存在唯一的 <img src="https://www.zhihu.com/equation?tex=%5Cxi%5Cin+%5Cleft%5B+a_%7Bn%7D%EF%BC%8Cb_%7Bn%7D%5Cright%5D" alt="[公式]"> 。</p>
+<p>现证明 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D%5Cright%5C%7D" alt="[公式]"> 中有子列以<img src="https://www.zhihu.com/equation?tex=%5Cxi" alt="[公式]"> 为极限。</p>
+<p>在 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B1%7D%EF%BC%8Cb_%7B1%7D+%5Cright%5D" alt="[公式]"> 中取 <img src="https://www.zhihu.com/equation?tex=x_%7Bn_%7B1%7D%7D" alt="[公式]"> , <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B2%7D%EF%BC%8Cb_%7B2%7D+%5Cright%5D" alt="[公式]"> 中取 <img src="https://www.zhihu.com/equation?tex=x_%7Bn_%7B2%7D%7D%EF%BC%8Cn_%7B2%7D%3En_%7B1%7D" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7B3%7D%EF%BC%8Cb_%7B3%7D+%5Cright%5D" alt="[公式]"> 中取 <img src="https://www.zhihu.com/equation?tex=x_%7Bn_%7B3%7D%7D%2C...+" alt="[公式]"> 在 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5B+a_%7Bk%7D%EF%BC%8Cb_%7Bk%7D+%5Cright%5D" alt="[公式]"> 中取 <img src="https://www.zhihu.com/equation?tex=x_%7Bn_%7Bk%7D%7D" alt="[公式]"></p>
+<p>从而得到子列 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn_%7Bk%7D%7D+%5Cright%5C%7D" alt="[公式]"> ， <img src="https://www.zhihu.com/equation?tex=a_%7Bk%7D%5Cleq+x_%7Bn_%7Bk%7D%7D%5Cleq+b_%7Bk%7D" alt="[公式]"> ，令 <img src="https://www.zhihu.com/equation?tex=k%5Crightarrow+%5Cinfty" alt="[公式]"> ，得， <img src="https://www.zhihu.com/equation?tex=%5Clim_%7Bk+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn_%7Bk%7D%7D%7D%3D%5Cxi" alt="[公式]"></p>
+<p>故定理得证。</p>
+<h2 id="五-柯西收敛准则"><a href="#五-柯西收敛准则" class="headerlink" title="五.柯西收敛准则"></a>五.柯西收敛准则</h2><p><strong>定理： <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 是基本列，则 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 收敛，反之也成立。</strong></p>
+<p>基本列： <img src="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2Cm%3EN%2C" alt="[公式]"> 成立 <img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-x_%7Bm%7D+%5Cright%7C%3C%5Cvarepsilon" alt="[公式]"> ,则称该数列为基本列。</p>
+<p>证明 ：（1）设 <img src="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn%7D%7D%3Da" alt="[公式]"> ，则有 <img src="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2C%3EN%2C%EF%BC%9A%5Cleft%7C+x_%7Bn%7D-a+%5Cright%7C%3C+%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D" alt="[公式]"> ，</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cforall+m%2C%3EN%EF%BC%8C%5Cleft%7C+x_%7Bm%7D-a+%5Cright%7C%3C+%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D" alt="[公式]"></p>
+<p>两式相加，可得 <img src="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2Cm%3EN%2C%5Cleft%7C+x_%7Bn%7D-x_%7Bm%7D+%5Cright%7C%3D%5Cleft%7C+x_%7Bn%7D-a-%EF%BC%88x_%7Bm%7D-a%EF%BC%89%5Cright%7C%5Cleq+%5Cleft%7C+x_%7Bn%7D-a+%5Cright%7C%2B%5Cleft%7C+x_%7Bm%7D+-a%5Cright%7C+%3C%5Cvarepsilon" alt="[公式]"></p>
+<p>(2).先证明 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 有界</p>
+<p>取 <img src="https://www.zhihu.com/equation?tex=%5Cvarepsilon%3D1%EF%BC%8C%5Cexists+N_%7B0%7D%EF%BC%8C%5Cforall+n%EF%BC%8CN_%7B0%7D%2B1%3EN_%7B0%7D%2C" alt="[公式]"> 成立 <img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-x_%7BN_%7B0%7D%2B1%7D%5Cright%7C%3C1" alt="[公式]"></p>
+<p>即： <img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D+%5Cright%7C%3C%5Cleft%7C+x_%7BN_%7B0%7D%2B1%7D+%5Cright%7C%2B1" alt="[公式]"> ,取 <img src="https://www.zhihu.com/equation?tex=M%3Dmax%5Cleft%5C%7B+%5Cleft%7C+x_%7B1%7D+%5Cright%7C%EF%BC%8C%5Cleft%7C+x_%7B2%7D+%5Cright%7C%EF%BC%8C...%2C%5Cleft%7C+x_%7BN_%7B0%7D%7D+%5Cright%7C%2C%5Cleft%7C+x_%7BN_%7B0%7D%2B1%7D+%5Cright%7C%5Cright%5C%7D" alt="[公式]"></p>
+<p>对于 <img src="https://www.zhihu.com/equation?tex=%5Cforall+n%EF%BC%8C%5Cleft%7C+x_%7Bn%7D+%5Cright%7C%5Cleq+M" alt="[公式]"> ，即 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn%7D+%5Cright%5C%7D" alt="[公式]"> 有界，所以有收敛子列 <img src="https://www.zhihu.com/equation?tex=%5Cleft%5C%7B+x_%7Bn_%7Bk%7D%7D+%5Cright%5C%7D" alt="[公式]"></p>
+<p>记 <img src="https://www.zhihu.com/equation?tex=%5Clim_%7Bk+%5Crightarrow+%5Cinfty%7D%7B%5Cleft%5C%7B+x_%7Bn_%7Bk%7D%7D+%5Cright%5C%7D%7D%3D%5Cxi" alt="[公式]"> ，</p>
+<p>因为 <img src="https://www.zhihu.com/equation?tex=%5Cforall+%5Cvarepsilon%3E0%2C%5Cexists+N+%2C%5Cforall+n%2Cm%3EN%2C%5Cleft%7C+x_%7Bn%7D-x_%7Bm%7D+%5Cright%7C%3C%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D" alt="[公式]"> ，当k充分大时，这个式子可以写成</p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-x_%7Bn_%7Bk%7D%7D+%5Cright%7C%3C%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D" alt="[公式]"> ，令 <img src="https://www.zhihu.com/equation?tex=k%5Crightarrow%5Cinfty" alt="[公式]"> ，则原式变为 <img src="https://www.zhihu.com/equation?tex=%5Cleft%7C+x_%7Bn%7D-%5Cxi%5Cright%7C%5Cleq%5Cfrac%7B%5Cvarepsilon%7D%7B2%7D%3C%5Cvarepsilon" alt="[公式]"></p>
+<p>故 <img src="https://www.zhihu.com/equation?tex=%5Clim_%7Bn+%5Crightarrow+%5Cinfty%7D%7Bx_%7Bn%7D%7D%3D%5Cxi" alt="[公式]"> ，证毕。</p>
+<p><strong>结语：上述五个定理统称为实数系的连续性定理，是数学分析学习过程中必须掌握的实数理论的基本定理。这几个定理都描述了实数系是连续的，不可列的。除此之外，实数系基本定理还有戴德金切割定理，聚点定理（也可归为之密性定理），定理内容及证明放在以后给出。从任何一个定理出发都能够推出其他几个定理，他们是极限论的基础，进而也是微积分的基础。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://empireghost.github.io/2020/09/09/实数系的连续性定理/" data-id="ckeuvxgdx002d5kmk9wv36q7a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/26/dubbo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">dubbo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch/">ElasticSearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Esper/">Esper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mybatis-Generate/">Mybatis Generate</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/dubbo-dubbox/">dubbo dubbox</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/eclipse/">eclipse</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql-export/">mysql export</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/oracle/">oracle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/分库分表/">分库分表</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ElasticSearch/">ElasticSearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis-Generate/">Mybatis Generate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPC-thrift-grpc/">RPC thrift grpc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commons-io-file-size/">commons-io file size</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dubbo-dubbox-eclipse-IDEA/">dubbo dubbox eclipse IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/empty-blank-guava-commons-lang3/">empty blank guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/guava-commons-lang3/">guava commons-lang3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-file/">java file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/">mycat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-导出-export/">mysql 导出 export</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sharding-jdbc/">sharding-jdbc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/复杂事件处理-EsperComplexEventProcess/">复杂事件处理 EsperComplexEventProcess</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/流量控制-熔断降级-系统负载保护/">流量控制 熔断降级 系统负载保护</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ElasticSearch/" style="font-size: 10px;">ElasticSearch</a> <a href="/tags/IDEA/" style="font-size: 10px;">IDEA</a> <a href="/tags/Mybatis-Generate/" style="font-size: 10px;">Mybatis Generate</a> <a href="/tags/OKHttp-Retrofit-Guice-Guava-Sharding-jdbc-Elastic-job/" style="font-size: 10px;">OKHttp Retrofit Guice Guava Sharding-jdbc Elastic-job</a> <a href="/tags/RPC-thrift-grpc/" style="font-size: 10px;">RPC thrift grpc</a> <a href="/tags/commons-io-file-size/" style="font-size: 10px;">commons-io file size</a> <a href="/tags/dubbo-dubbox-eclipse-IDEA/" style="font-size: 10px;">dubbo dubbox eclipse IDEA</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/empty-blank-guava-commons-lang3/" style="font-size: 20px;">empty blank guava commons-lang3</a> <a href="/tags/guava-commons-lang3/" style="font-size: 10px;">guava commons-lang3</a> <a href="/tags/java-file/" style="font-size: 10px;">java file</a> <a href="/tags/mycat/" style="font-size: 10px;">mycat</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/mysql-导出-export/" style="font-size: 10px;">mysql 导出 export</a> <a href="/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/tags/sharding-jdbc/" style="font-size: 10px;">sharding-jdbc</a> <a href="/tags/复杂事件处理-EsperComplexEventProcess/" style="font-size: 10px;">复杂事件处理 EsperComplexEventProcess</a> <a href="/tags/流量控制-熔断降级-系统负载保护/" style="font-size: 10px;">流量控制 熔断降级 系统负载保护</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/09/09/实数系的连续性定理/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/26/dubbo/">dubbo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-extension/">file_extension</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-size/">file_size</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/21/file-lines-count/">file_lines_count</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 empireghost<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
